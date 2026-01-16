@@ -523,3 +523,42 @@
 2026-01-16 18:52:38 - httpcore.http11 - DEBUG - response_closed.started
 2026-01-16 18:52:38 - httpcore.http11 - DEBUG - response_closed.complete
 2026-01-16 18:52:38 - rag_education.gemini_service - DEBUG - Generated response length: 5956
+2026-01-16 18:54:37 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-16 18:58:04 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+2026-01-16 18:58:06 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 18:58:06 - rag_education.main - INFO - Database initialized
+2026-01-16 18:58:54 - rag_education.rag_service - INFO - Retrieving context for query: teach me about the decoding problem in depth please ...
+2026-01-16 18:58:54 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-16 18:58:54 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fd398321ac0>
+2026-01-16 18:58:54 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7fd3b239b1d0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-16 18:58:54 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fd3983219d0>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 18:58:56 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=184'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 18:58:54 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-16 18:58:54 - rag_education.rag_service - DEBUG - Formatted 3 chunks for response generation
+2026-01-16 18:58:54 - rag_education.rag_service - INFO - Generating response for: teach me about the decoding problem in depth please ...
+2026-01-16 18:58:54 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-16 18:58:54 - rag_education.rag_service - DEBUG - Sending prompt to Gemini (length: 15688)
+2026-01-16 18:58:54 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 15688
+2026-01-16 18:58:54 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 18:58:54 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 18:59:07 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 18:59:10 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=13138'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 18:59:07 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 18:59:07 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 18:59:07 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 18:59:07 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 18:59:07 - rag_education.gemini_service - DEBUG - Generated response length: 4576
+2026-01-16 18:59:07 - rag_education.rag_service - INFO - Generated response (length: 4576)
+2026-01-16 18:59:30 - rag_education.main - INFO - Shutting down RAG Education System API...
