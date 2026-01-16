@@ -1,0 +1,357 @@
+2026-01-16 17:44:55 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:44:55 - rag_education.main - INFO - Database initialized
+2026-01-16 17:45:16 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-16 17:45:19 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:45:19 - rag_education.main - INFO - Database initialized
+2026-01-16 17:45:58 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-16 17:46:01 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+2026-01-16 17:46:01 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:46:01 - rag_education.main - INFO - Database initialized
+2026-01-16 17:46:03 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-16 17:46:09 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+2026-01-16 17:46:10 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:46:10 - rag_education.main - INFO - Database initialized
+2026-01-16 17:47:17 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-16 17:49:03 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+2026-01-16 17:49:04 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:49:04 - rag_education.main - INFO - Database initialized
+2026-01-16 17:49:30 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-16 17:49:37 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+2026-01-16 17:49:38 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:49:38 - rag_education.main - INFO - Database initialized
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_begin with no data
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_header_field with data[42:61]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_header_value with data[63:119]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_header_end with no data
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_header_field with data[121:133]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_header_value with data[135:150]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_header_end with no data
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_headers_finished with no data
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[154:81920]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:119312]
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_part_end with no data
+2026-01-16 17:50:15 - python_multipart.multipart - DEBUG - Calling on_end with no data
+2026-01-16 17:50:24 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 6295
+2026-01-16 17:50:24 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:50:24 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-16 17:50:24 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec7c875c10>
+2026-01-16 17:50:24 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7feccdaa6ed0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-16 17:50:24 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fecac115940>
+2026-01-16 17:50:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:50:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:50:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:50:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:50:36 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=9217'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:50:33 - rag_education.gemini_service - DEBUG - Generated response length: 3309
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:50:33 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:50:36 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=184'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:50:36 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=236'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:50:36 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=184'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:50:34 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:50:57 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 668
+2026-01-16 17:50:57 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:50:57 - httpcore.connection - DEBUG - close.started
+2026-01-16 17:50:57 - httpcore.connection - DEBUG - close.complete
+2026-01-16 17:50:57 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-16 17:50:57 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec7c289100>
+2026-01-16 17:50:57 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7feccdaa6ed0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-16 17:50:57 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec7c288bf0>
+2026-01-16 17:50:57 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:50:57 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:50:57 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:50:57 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:50:57 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:51:03 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=3279'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:51:00 - rag_education.gemini_service - DEBUG - Generated response length: 95
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:51:00 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:51:03 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=265'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:51:01 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 9976
+2026-01-16 17:51:01 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:51:01 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:51:17 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:51:19 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=16112'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:51:17 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:51:17 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:51:17 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:51:17 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:51:17 - rag_education.gemini_service - DEBUG - Generated response length: 8980
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_begin with no data
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_header_field with data[42:61]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_header_value with data[63:117]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_header_end with no data
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_header_field with data[119:131]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_header_value with data[133:148]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_header_end with no data
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_headers_finished with no data
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[152:32768]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:65536]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:12 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:256000]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_data with data[0:689]
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_part_end with no data
+2026-01-16 17:52:13 - python_multipart.multipart - DEBUG - Calling on_end with no data
+2026-01-16 17:52:46 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 8140
+2026-01-16 17:52:46 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:52:46 - httpcore.connection - DEBUG - close.started
+2026-01-16 17:52:46 - httpcore.connection - DEBUG - close.complete
+2026-01-16 17:52:46 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-16 17:52:46 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec74de9190>
+2026-01-16 17:52:46 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7feccdaa6ed0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-16 17:52:46 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec74de8a10>
+2026-01-16 17:52:46 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:46 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:52:46 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:52:46 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:52:46 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:01 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=12400'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:52:58 - rag_education.gemini_service - DEBUG - Generated response length: 3024
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:52:58 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:01 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=267'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:01 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=260'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:02 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=192'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:52:59 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:02 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=280'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:02 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=328'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:03 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=277'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:03 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=193'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:00 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:01 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:03 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=181'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:01 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:01 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:01 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:01 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:21 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 685
+2026-01-16 17:53:21 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:53:21 - httpcore.connection - DEBUG - close.started
+2026-01-16 17:53:21 - httpcore.connection - DEBUG - close.complete
+2026-01-16 17:53:21 - httpcore.connection - DEBUG - connect_tcp.started host='generativelanguage.googleapis.com' port=443 local_address=None timeout=None socket_options=None
+2026-01-16 17:53:21 - httpcore.connection - DEBUG - connect_tcp.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec74f20920>
+2026-01-16 17:53:21 - httpcore.connection - DEBUG - start_tls.started ssl_context=<ssl.SSLContext object at 0x7feccdaa6ed0> server_hostname='generativelanguage.googleapis.com' timeout=None
+2026-01-16 17:53:21 - httpcore.connection - DEBUG - start_tls.complete return_value=<httpcore._backends.sync.SyncStream object at 0x7fec7c874500>
+2026-01-16 17:53:21 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:21 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:21 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:21 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:21 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:26 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=2335'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:23 - rag_education.gemini_service - DEBUG - Generated response length: 92
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:23 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:26 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=272'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:24 - rag_education.gemini_service - DEBUG - Generating text with prompt length: 78549
+2026-01-16 17:53:24 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - send_request_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - send_request_headers.complete
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - send_request_body.started request=<Request [b'POST']>
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - send_request_body.complete
+2026-01-16 17:53:24 - httpcore.http11 - DEBUG - receive_response_headers.started request=<Request [b'POST']>
+2026-01-16 17:53:38 - httpcore.http11 - DEBUG - receive_response_headers.complete return_value=(b'HTTP/1.1', 200, b'OK', [(b'Content-Type', b'application/json; charset=UTF-8'), (b'Vary', b'Origin'), (b'Vary', b'X-Origin'), (b'Vary', b'Referer'), (b'Content-Encoding', b'gzip'), (b'Date', b'Fri, 16 Jan 2026 17:53:40 GMT'), (b'Server', b'scaffolding on HTTPServer2'), (b'X-XSS-Protection', b'0'), (b'X-Frame-Options', b'SAMEORIGIN'), (b'X-Content-Type-Options', b'nosniff'), (b'Server-Timing', b'gfet4t7; dur=13832'), (b'Alt-Svc', b'h3=":443"; ma=2592000,h3-29=":443"; ma=2592000'), (b'Transfer-Encoding', b'chunked')])
+2026-01-16 17:53:38 - httpcore.http11 - DEBUG - receive_response_body.started request=<Request [b'POST']>
+2026-01-16 17:53:38 - httpcore.http11 - DEBUG - receive_response_body.complete
+2026-01-16 17:53:38 - httpcore.http11 - DEBUG - response_closed.started
+2026-01-16 17:53:38 - httpcore.http11 - DEBUG - response_closed.complete
+2026-01-16 17:53:38 - rag_education.gemini_service - DEBUG - Generated response length: 2172
+2026-01-16 17:54:19 - rag_education.main - INFO - Shutting down RAG Education System API...

@@ -1,0 +1,53 @@
+2026-01-16 17:49:03 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [12389]
+INFO:     Waiting for application startup.
+2026-01-16 17:49:04 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:49:04 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-16 17:49:30 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12389]
+2026-01-16 17:49:37 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [12565]
+INFO:     Waiting for application startup.
+2026-01-16 17:49:38 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 17:49:38 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58780 - "OPTIONS /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58780 - "GET /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58780 - "GET /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58780 - "GET /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58780 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "OPTIONS /api/courses/1/upload HTTP/1.1" 200 OK
+2026-01-16 17:50:24 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:33520 - "POST /api/courses/1/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33520 - "GET /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34928 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-16 17:50:57 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:51:01 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:34928 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34928 - "GET /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44540 - "GET /api/courses/1/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44570 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36156 - "OPTIONS /api/courses/2/upload HTTP/1.1" 200 OK
+2026-01-16 17:52:46 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:36156 - "POST /api/courses/2/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36156 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36156 - "OPTIONS /api/courses/2/structure HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36156 - "GET /api/courses/2/structure HTTP/1.1" 200 OK
+2026-01-16 17:53:21 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 17:53:24 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:36474 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41986 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52766 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-16 17:54:19 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12565]

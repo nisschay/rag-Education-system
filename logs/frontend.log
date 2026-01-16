@@ -1,0 +1,11 @@
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 655 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+5:54:06 PM [vite] (client) hmr update /src/pages/Login.jsx, /src/pages/ChatInterface.jsx, /src/pages/Dashboard.jsx, /src/index.css
+5:54:06 PM [vite] (client) hmr update /src/index.css, /src/pages/Login.jsx, /src/pages/ChatInterface.jsx, /src/pages/Dashboard.jsx
