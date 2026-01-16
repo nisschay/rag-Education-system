@@ -39,7 +39,9 @@ export const authAPI = {
 
 export const coursesAPI = {
   getCourses: () => api.get('/api/courses/'),
+  getCourse: (courseId) => api.get(`/api/courses/${courseId}`),
   createCourse: (data) => api.post('/api/courses/', data),
+  deleteCourse: (courseId) => api.delete(`/api/courses/${courseId}`),
   uploadDocument: (courseId, file, unitId) => {
     const formData = new FormData();
     formData.append('file', file);
@@ -47,15 +49,29 @@ export const coursesAPI = {
     return api.post(`/api/courses/${courseId}/upload`, formData);
   },
   getCourseStructure: (courseId) => api.get(`/api/courses/${courseId}/structure`),
+  getCourseDocuments: (courseId) => api.get(`/api/courses/${courseId}/documents`),
+  deleteDocument: (courseId, documentId) => api.delete(`/api/courses/${courseId}/documents/${documentId}`),
   createUnit: (courseId, data) => api.post(`/api/courses/${courseId}/units`, data),
 };
 
 export const chatAPI = {
   createSession: (courseId, teachingMode) => 
     api.post('/api/chat/session', { course_id: courseId, teaching_mode: teachingMode }),
-  sendMessage: (data) => api.post('/api/chat/message', data),
+  sendMessage: (courseId, message, sessionId = null) => 
+    api.post('/api/chat/message', { course_id: courseId, message, session_id: sessionId }),
   getSessions: (courseId) => api.get('/api/chat/sessions', { params: { course_id: courseId } }),
   getMessages: (sessionId) => api.get(`/api/chat/sessions/${sessionId}/messages`),
+  getChatHistory: async (courseId) => {
+    const sessionsRes = await api.get('/api/chat/sessions', { params: { course_id: courseId } });
+    const sessions = sessionsRes.data || [];
+    if (sessions.length === 0) {
+      return { data: { messages: [], session_id: null } };
+    }
+    // Get the most recent session's messages
+    const latestSession = sessions[sessions.length - 1];
+    const messagesRes = await api.get(`/api/chat/sessions/${latestSession.id}/messages`);
+    return { data: { messages: messagesRes.data || [], session_id: latestSession.id } };
+  },
 };
 
 export default api;

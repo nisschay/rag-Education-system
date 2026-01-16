@@ -9,3 +9,13 @@
   ➜  Network: use --host to expose
 5:54:06 PM [vite] (client) hmr update /src/pages/Login.jsx, /src/pages/ChatInterface.jsx, /src/pages/Dashboard.jsx, /src/index.css
 5:54:06 PM [vite] (client) hmr update /src/index.css, /src/pages/Login.jsx, /src/pages/ChatInterface.jsx, /src/pages/Dashboard.jsx
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+6:49:58 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v7.3.1  ready in 708 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

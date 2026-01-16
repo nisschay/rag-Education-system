@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
 from sqlalchemy.orm import Session
 from app.database import get_db
-from app.models.schemas import Course, Unit, User
+from app.models.schemas import Course, Unit, User, UploadedFile, ChatSession, Message
 from app.api.auth import get_current_user
 from pydantic import BaseModel
 from typing import List, Optional
@@ -10,7 +10,9 @@ import aiofiles
 import os
 from app.services.document_processor import document_processor
 from app.services.vector_store import vector_store
+from app.utils.logging_config import get_logger
 
+logger = get_logger("courses")
 router = APIRouter(prefix="/api/courses", tags=["courses"])
 
 class CourseCreate(BaseModel):
@@ -58,6 +60,23 @@ async def get_courses(
     """Get all courses for current user"""
     courses = db.query(Course).filter(Course.user_id == current_user.id).all()
     return courses
+
+@router.get("/{course_id}", response_model=CourseResponse)
+async def get_course(
+    course_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get a specific course by ID"""
+    course = db.query(Course).filter(
+        Course.id == course_id,
+        Course.user_id == current_user.id
+    ).first()
+    
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    
+    return course
 
 @router.post("/{course_id}/units")
 async def create_unit(
@@ -112,7 +131,10 @@ async def upload_document(
     
     async with aiofiles.open(file_path, 'wb') as f:
         content = await file.read()
+        file_size = len(content)
         await f.write(content)
+    
+    logger.info(f"Uploaded file {file.filename} ({file_size} bytes) for course {course_id}")
     
     # Extract text
     text = await document_processor.extract_text_from_pdf(file_path)
@@ -156,10 +178,23 @@ async def upload_document(
         ids=ids
     )
     
+    # Save file record to database
+    uploaded_file = UploadedFile(
+        course_id=course_id,
+        filename=f"{course_id}_{file.filename}",
+        original_filename=file.filename,
+        file_size=file_size,
+        file_path=file_path,
+        chunks_count=len(chunks)
+    )
+    db.add(uploaded_file)
+    db.commit()
+    
     return {
         "message": "Document uploaded and processed",
         "chunks_created": len(chunks),
-        "file_path": file_path
+        "file_path": file_path,
+        "file_size": file_size
     }
 
 @router.get("/{course_id}/structure")
@@ -201,3 +236,128 @@ async def get_course_structure(
         "course_name": course.name,
         "units": tree
     }
+
+
+@router.get("/{course_id}/documents")
+async def get_course_documents(
+    course_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Get all documents uploaded to a course"""
+    course = db.query(Course).filter(
+        Course.id == course_id,
+        Course.user_id == current_user.id
+    ).first()
+    
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    
+    files = db.query(UploadedFile).filter(UploadedFile.course_id == course_id).all()
+    
+    return {
+        "course_id": course_id,
+        "documents": [
+            {
+                "id": f.id,
+                "filename": f.original_filename,
+                "file_size": f.file_size,
+                "chunks_count": f.chunks_count,
+                "uploaded_at": f.uploaded_at.isoformat() if f.uploaded_at else None
+            }
+            for f in files
+        ]
+    }
+
+
+@router.delete("/{course_id}")
+async def delete_course(
+    course_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Delete a course and all its data"""
+    course = db.query(Course).filter(
+        Course.id == course_id,
+        Course.user_id == current_user.id
+    ).first()
+    
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    
+    logger.info(f"Deleting course {course_id}: {course.name}")
+    
+    try:
+        # Delete from vector store
+        vector_store.delete_collection(course_id)
+        
+        # Delete uploaded files from disk
+        files = db.query(UploadedFile).filter(UploadedFile.course_id == course_id).all()
+        for f in files:
+            if f.file_path and os.path.exists(f.file_path):
+                os.remove(f.file_path)
+        
+        # Delete chat sessions and messages
+        sessions = db.query(ChatSession).filter(ChatSession.course_id == course_id).all()
+        for session in sessions:
+            db.query(Message).filter(Message.session_id == session.id).delete()
+        db.query(ChatSession).filter(ChatSession.course_id == course_id).delete()
+        
+        # Delete uploaded files records
+        db.query(UploadedFile).filter(UploadedFile.course_id == course_id).delete()
+        
+        # Delete units
+        db.query(Unit).filter(Unit.course_id == course_id).delete()
+        
+        # Delete course
+        db.delete(course)
+        db.commit()
+        
+        logger.info(f"Successfully deleted course {course_id}")
+        return {"message": "Course deleted successfully"}
+        
+    except Exception as e:
+        logger.error(f"Error deleting course {course_id}: {e}")
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error deleting course: {str(e)}")
+
+
+@router.delete("/{course_id}/documents/{document_id}")
+async def delete_document(
+    course_id: int,
+    document_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Delete a specific document from a course"""
+    course = db.query(Course).filter(
+        Course.id == course_id,
+        Course.user_id == current_user.id
+    ).first()
+    
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    
+    file = db.query(UploadedFile).filter(
+        UploadedFile.id == document_id,
+        UploadedFile.course_id == course_id
+    ).first()
+    
+    if not file:
+        raise HTTPException(status_code=404, detail="Document not found")
+    
+    try:
+        # Delete file from disk
+        if file.file_path and os.path.exists(file.file_path):
+            os.remove(file.file_path)
+        
+        # Delete record
+        db.delete(file)
+        db.commit()
+        
+        return {"message": "Document deleted successfully"}
+        
+    except Exception as e:
+        logger.error(f"Error deleting document {document_id}: {e}")
+        db.rollback()
+        raise HTTPException(status_code=500, detail=f"Error deleting document: {str(e)}")

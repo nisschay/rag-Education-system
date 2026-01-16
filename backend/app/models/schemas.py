@@ -82,3 +82,17 @@ class Message(Base):
     timestamp = Column(DateTime, default=datetime.utcnow)
     
     session = relationship("ChatSession", back_populates="messages")
+
+class UploadedFile(Base):
+    __tablename__ = "uploaded_files"
+    
+    id = Column(Integer, primary_key=True, index=True)
+    course_id = Column(Integer, ForeignKey("courses.id"))
+    filename = Column(String)
+    original_filename = Column(String)
+    file_size = Column(Integer)  # Size in bytes
+    file_path = Column(String)
+    chunks_count = Column(Integer, default=0)
+    uploaded_at = Column(DateTime, default=datetime.utcnow)
+    
+    course = relationship("Course", backref="uploaded_files")

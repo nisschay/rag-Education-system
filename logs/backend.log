@@ -51,3 +51,135 @@ INFO:     Waiting for application shutdown.
 2026-01-16 17:54:19 - rag_education.main - INFO - Shutting down RAG Education System API...
 INFO:     Application shutdown complete.
 INFO:     Finished server process [12565]
+2026-01-16 18:49:58 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [16995]
+INFO:     Waiting for application startup.
+2026-01-16 18:49:59 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 18:49:59 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/2/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/3/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/5/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/2/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/3/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/7/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/6/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/8/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/9/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/10/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/11/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/12/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/14/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/13/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/15/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/16/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/17/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/18/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/19/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/20/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/21/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/22/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/23/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/24/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/25/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/26/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "OPTIONS /api/courses/27/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "OPTIONS /api/courses/28/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/5/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/7/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/6/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/8/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/9/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/10/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/11/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/12/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/14/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/13/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/15/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/16/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/17/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/18/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/19/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/20/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/21/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/22/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/23/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/24/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/25/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/26/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49232 - "GET /api/courses/27/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49226 - "GET /api/courses/28/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49542 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49542 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49542 - "GET /api/courses/3/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/2/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/4/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/1/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/5/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/6/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/8/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/7/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/10/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/9/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/11/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/12/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/14/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/13/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/15/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/16/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49554 - "GET /api/courses/17/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49554 - "GET /api/courses/20/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/18/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/19/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/22/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49554 - "GET /api/courses/21/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/23/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49542 - "GET /api/courses/24/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49554 - "GET /api/courses/25/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/26/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49548 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49542 - "GET /api/courses/27/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49554 - "GET /api/courses/28/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:49560 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49576 - "POST /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49576 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49576 - "OPTIONS /api/courses/29/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49576 - "GET /api/courses/29/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49592 - "OPTIONS /api/courses/29/upload HTTP/1.1" 200 OK
+2026-01-16 18:50:49 - rag_education.courses - INFO - Uploaded file vibha ml unit hmm.pdf (5065078 bytes) for course 29
+2026-01-16 18:50:54 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:49592 - "POST /api/courses/29/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49592 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49592 - "GET /api/courses/29/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38786 - "OPTIONS /api/courses/29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38786 - "GET /api/courses/29/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38786 - "GET /api/courses/29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38786 - "OPTIONS /api/chat/sessions?course_id=29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38786 - "GET /api/chat/sessions?course_id=29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52664 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-16 18:51:30 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 18:51:34 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:52664 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52664 - "GET /api/chat/sessions?course_id=29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52664 - "OPTIONS /api/chat/sessions/6/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52664 - "GET /api/chat/sessions/6/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40486 - "GET /api/courses/29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40498 - "GET /api/courses/29/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40510 - "GET /api/chat/sessions?course_id=29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40510 - "GET /api/chat/sessions/6/messages HTTP/1.1" 200 OK
+2026-01-16 18:52:20 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 18:52:24 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:51202 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51202 - "GET /api/chat/sessions?course_id=29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51202 - "GET /api/chat/sessions/6/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50008 - "GET /api/chat/sessions?course_id=29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50024 - "GET /api/courses/29/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50026 - "GET /api/courses/29 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50008 - "GET /api/chat/sessions/6/messages HTTP/1.1" 200 OK
