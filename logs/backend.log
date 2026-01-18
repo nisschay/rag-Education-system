@@ -264,3 +264,613 @@ INFO:     127.0.0.1:35854 - "GET /api/courses/30 HTTP/1.1" 200 OK
 2026-01-16 19:19:03 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
 INFO:     127.0.0.1:45016 - "POST /api/courses/30/upload HTTP/1.1" 200 OK
 INFO:     127.0.0.1:45016 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53366 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53370 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53372 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39242 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39246 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39262 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+2026-01-16 19:20:52 - rag_education.courses - INFO - Uploaded file 06_Phases of a Compiler.pptx.pdf (516066 bytes) for course 30
+2026-01-16 19:20:54 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:35374 - "POST /api/courses/30/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35374 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35374 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35374 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35374 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44054 - "OPTIONS /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44056 - "OPTIONS /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44080 - "OPTIONS /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44054 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44056 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44080 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51132 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51148 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51164 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33358 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-16 19:24:30 - rag_education.rag_service - INFO - Retrieving context for query: teach me everything about the phases of compliers, make it a lot of points instead of long paragraph...
+2026-01-16 19:24:31 - rag_education.rag_service - INFO - Retrieved 4 chunks
+2026-01-16 19:24:31 - rag_education.rag_service - INFO - Generating response for: teach me everything about the phases of compliers, make it a lot of points instead of long paragraph...
+2026-01-16 19:24:31 - rag_education.rag_service - INFO - Using 4 context chunks
+2026-01-16 19:24:31 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 19:24:45 - rag_education.rag_service - INFO - Generated response (length: 6932)
+INFO:     127.0.0.1:33358 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33358 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33358 - "OPTIONS /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33358 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55536 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55550 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55566 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55566 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59052 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59066 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59068 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59068 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36438 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36436 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36464 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36464 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-16 19:27:37 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [18743]
+2026-01-16 19:44:37 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [21212]
+INFO:     Waiting for application startup.
+2026-01-16 19:44:39 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 19:44:39 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:38608 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38608 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38608 - "OPTIONS /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38608 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39528 - "OPTIONS /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "OPTIONS /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39528 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39544 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "OPTIONS /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39544 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39528 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39544 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39536 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40584 - "GET /api/chat/sessions?course_id=30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40608 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40580 - "GET /api/courses/30 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40584 - "GET /api/chat/sessions/7/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40584 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40584 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42780 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42780 - "POST /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42780 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42780 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42780 - "OPTIONS /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42780 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60554 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60562 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60576 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38868 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38868 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38868 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47928 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47940 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47952 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56730 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56740 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56744 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45936 - "OPTIONS /api/courses/31/upload HTTP/1.1" 200 OK
+2026-01-16 19:47:00 - rag_education.courses - WARNING - File vibha ml unit 1.pdf exceeds size limit (15714841 > 10485760)
+INFO:     127.0.0.1:45936 - "POST /api/courses/31/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45936 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45948 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45936 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+2026-01-16 19:47:14 - rag_education.courses - INFO - Uploaded file vibha ml unit hmm.pdf (5065078 bytes) for course 31
+2026-01-16 19:47:31 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:52352 - "POST /api/courses/31/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50624 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50636 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50640 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50640 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50624 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50636 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39964 - "OPTIONS /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39968 - "OPTIONS /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39970 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39964 - "GET /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39968 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53470 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-16 19:48:32 - rag_education.rag_service - INFO - Retrieving context for query: what are markov models, teach me the basics, dont make it too long ...
+2026-01-16 19:48:32 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-16 19:48:32 - rag_education.rag_service - INFO - Generating response for: what are markov models, teach me the basics, dont make it too long ...
+2026-01-16 19:48:32 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-16 19:48:32 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 19:48:32 - rag_education.gemini_service - ERROR - Error generating text: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 40.695549822s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}
+INFO:     127.0.0.1:53470 - "POST /api/chat/message HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/chat.py", line 105, in send_message
+    response_text = await rag_service.generate_response(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/services/rag_service.py", line 112, in generate_response
+    response = await gemini_service.generate_text(prompt, system_instruction)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/services/gemini_service.py", line 27, in generate_text
+    response = self.client.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/models.py", line 5215, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/models.py", line 3997, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1386, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1222, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1199, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/errors.py", line 121, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/errors.py", line 146, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 40.695549822s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '40s'}]}}
+INFO:     127.0.0.1:37014 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37016 - "GET /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37024 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37024 - "OPTIONS /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37024 - "GET /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+2026-01-16 19:49:15 - rag_education.rag_service - INFO - Retrieving context for query: what are markov models, teach me the basics, dont make it too long ...
+2026-01-16 19:49:17 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-16 19:49:17 - rag_education.rag_service - INFO - Generating response for: what are markov models, teach me the basics, dont make it too long ...
+2026-01-16 19:49:17 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-16 19:49:17 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 19:49:17 - rag_education.gemini_service - ERROR - Error generating text: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 59.268331842s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}
+INFO:     127.0.0.1:37024 - "POST /api/chat/message HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/chat.py", line 105, in send_message
+    response_text = await rag_service.generate_response(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/services/rag_service.py", line 112, in generate_response
+    response = await gemini_service.generate_text(prompt, system_instruction)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/services/gemini_service.py", line 27, in generate_text
+    response = self.client.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/models.py", line 5215, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/models.py", line 3997, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1386, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1222, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1199, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/errors.py", line 121, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/errors.py", line 146, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 59.268331842s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}
+INFO:     127.0.0.1:37032 - "GET /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37032 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37032 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37032 - "GET /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37032 - "GET /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58530 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58532 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58530 - "GET /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41670 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41684 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41668 - "GET /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:41670 - "GET /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+2026-01-16 19:49:54 - rag_education.rag_service - INFO - Retrieving context for query: teach me what markov models are and keep it short...
+2026-01-16 19:49:54 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-16 19:49:54 - rag_education.rag_service - INFO - Generating response for: teach me what markov models are and keep it short...
+2026-01-16 19:49:54 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-16 19:49:54 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 19:49:55 - rag_education.gemini_service - ERROR - Error generating text: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 24.803174924s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}
+INFO:     127.0.0.1:54652 - "POST /api/chat/message HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/chat.py", line 105, in send_message
+    response_text = await rag_service.generate_response(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/services/rag_service.py", line 112, in generate_response
+    response = await gemini_service.generate_text(prompt, system_instruction)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/services/gemini_service.py", line 27, in generate_text
+    response = self.client.models.generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/models.py", line 5215, in generate_content
+    response = self._generate_content(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/models.py", line 3997, in _generate_content
+    response = self._api_client.request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1386, in request
+    response = self._request(http_request, http_options, stream=False)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1222, in _request
+    return self._retry(self._request_once, http_request, stream)  # type: ignore[no-any-return]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 477, in __call__
+    do = self.iter(retry_state=retry_state)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 378, in iter
+    result = action(retry_state)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 420, in exc_check
+    raise retry_exc.reraise()
+          ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 187, in reraise
+    raise self.last_attempt.result()
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 449, in result
+    return self.__get_result()
+           ^^^^^^^^^^^^^^^^^^^
+  File "/usr/lib/python3.12/concurrent/futures/_base.py", line 401, in __get_result
+    raise self._exception
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/tenacity/__init__.py", line 480, in __call__
+    result = fn(*args, **kwargs)
+             ^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/_api_client.py", line 1199, in _request_once
+    errors.APIError.raise_for_response(response)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/errors.py", line 121, in raise_for_response
+    cls.raise_error(response.status_code, response_json, response)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/google/genai/errors.py", line 146, in raise_error
+    raise ClientError(status_code, response_json, response)
+google.genai.errors.ClientError: 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 24.803174924s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '24s'}]}}
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-16 19:51:04 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [21212]
+2026-01-16 20:01:54 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [22517]
+INFO:     Waiting for application startup.
+2026-01-16 20:01:58 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-16 20:01:58 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45498 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45498 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45498 - "OPTIONS /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45506 - "OPTIONS /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45506 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45498 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51028 - "GET /api/courses/30/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51036 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51048 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37094 - "OPTIONS /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37094 - "OPTIONS /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37094 - "GET /api/courses/31/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37098 - "GET /api/courses/31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37110 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37110 - "OPTIONS /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37110 - "GET /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34376 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-16 20:02:59 - rag_education.rag_service - INFO - Retrieving context for query: teach me the basics of markove model keep it not too long just what it is and what their uses are...
+2026-01-16 20:03:00 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-16 20:03:00 - rag_education.rag_service - INFO - Generating response for: teach me the basics of markove model keep it not too long just what it is and what their uses are...
+2026-01-16 20:03:00 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-16 20:03:00 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 20:03:01 - rag_education.gemini_service - ERROR - Error generating text (attempt 1): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 19.078419177s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '19s'}]}}
+2026-01-16 20:03:01 - rag_education.gemini_service - INFO - Rate limited. Waiting 19s before retry...
+2026-01-16 20:03:20 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 20:03:20 - rag_education.gemini_service - ERROR - Error generating text (attempt 2): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 1.003979004s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'location': 'global', 'model': 'gemini-2.5-flash'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '1s'}]}}
+2026-01-16 20:03:20 - rag_education.gemini_service - INFO - Rate limited. Waiting 1s before retry...
+2026-01-16 20:03:21 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-16 20:03:22 - rag_education.gemini_service - ERROR - Error generating text (attempt 3): 429 RESOURCE_EXHAUSTED. {'error': {'code': 429, 'message': 'You exceeded your current quota, please check your plan and billing details. For more information on this error, head to: https://ai.google.dev/gemini-api/docs/rate-limits. To monitor your current usage, head to: https://ai.dev/rate-limit. \n* Quota exceeded for metric: generativelanguage.googleapis.com/generate_content_free_tier_requests, limit: 20, model: gemini-2.5-flash\nPlease retry in 59.644449197s.', 'status': 'RESOURCE_EXHAUSTED', 'details': [{'@type': 'type.googleapis.com/google.rpc.Help', 'links': [{'description': 'Learn more about Gemini API quotas', 'url': 'https://ai.google.dev/gemini-api/docs/rate-limits'}]}, {'@type': 'type.googleapis.com/google.rpc.QuotaFailure', 'violations': [{'quotaMetric': 'generativelanguage.googleapis.com/generate_content_free_tier_requests', 'quotaId': 'GenerateRequestsPerDayPerProjectPerModel-FreeTier', 'quotaDimensions': {'model': 'gemini-2.5-flash', 'location': 'global'}, 'quotaValue': '20'}]}, {'@type': 'type.googleapis.com/google.rpc.RetryInfo', 'retryDelay': '59s'}]}}
+INFO:     127.0.0.1:34376 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34376 - "GET /api/chat/sessions?course_id=31 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34376 - "GET /api/chat/sessions/8/messages HTTP/1.1" 200 OK
+2026-01-18 05:46:00 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [3340]
+INFO:     Waiting for application startup.
+2026-01-18 05:46:19 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 05:46:19 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 05:47:45 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3340]
+2026-01-18 05:47:56 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [3657]
+INFO:     Waiting for application startup.
+2026-01-18 05:47:59 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 05:47:59 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 05:52:52 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3657]
+2026-01-18 05:53:23 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [5248]
+INFO:     Waiting for application startup.
+2026-01-18 05:53:26 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 05:53:26 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:01:39 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5248]
+2026-01-18 06:01:49 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [6384]
+INFO:     Waiting for application startup.
+2026-01-18 06:01:53 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:01:53 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:02:39 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6384]
+2026-01-18 06:02:49 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [6573]
+INFO:     Waiting for application startup.
+2026-01-18 06:02:51 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:02:51 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:52374 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52374 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52374 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52374 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50936 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50936 - "POST /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50936 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50936 - "OPTIONS /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50936 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "OPTIONS /api/courses/32/upload HTTP/1.1" 200 OK
+2026-01-18 06:03:52 - rag_education.courses - WARNING - File vibha ml unit 1.pdf exceeds size limit (15714841 > 10485760)
+INFO:     127.0.0.1:59930 - "POST /api/courses/32/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59930 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59934 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35074 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35088 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38912 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38914 - "GET /api/courses/ HTTP/1.1" 200 OK
+2026-01-18 06:05:58 - rag_education.courses - INFO - Uploaded file EM.pdf (2083053 bytes) for course 32
+2026-01-18 06:06:04 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:38934 - "POST /api/courses/32/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38934 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43038 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51708 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51706 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51708 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51706 - "OPTIONS /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51708 - "OPTIONS /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51708 - "GET /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51706 - "GET /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54188 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-18 06:07:14 - rag_education.rag_service - INFO - Retrieving context for query: teach me everything about expectation minimization keep it under 400 words please ...
+2026-01-18 06:07:15 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-18 06:07:15 - rag_education.rag_service - INFO - Generating response for: teach me everything about expectation minimization keep it under 400 words please ...
+2026-01-18 06:07:15 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-18 06:07:15 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-18 06:07:24 - rag_education.rag_service - INFO - Generated response (length: 3300)
+INFO:     127.0.0.1:54188 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54188 - "GET /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54188 - "OPTIONS /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54188 - "GET /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55684 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55672 - "GET /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55698 - "GET /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55684 - "GET /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55684 - "GET /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55698 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55672 - "GET /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55684 - "GET /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+2026-01-18 06:08:23 - rag_education.rag_service - INFO - Retrieving context for query: why whould anyone use this over other algos ...
+2026-01-18 06:08:24 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-18 06:08:24 - rag_education.rag_service - INFO - Generating response for: why whould anyone use this over other algos ...
+2026-01-18 06:08:24 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-18 06:08:24 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-18 06:08:28 - rag_education.rag_service - INFO - Generated response (length: 1065)
+INFO:     127.0.0.1:48130 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48130 - "GET /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48130 - "GET /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:09:18 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6573]

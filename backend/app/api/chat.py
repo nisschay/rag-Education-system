@@ -55,6 +55,7 @@ async def send_message(
     db: Session = Depends(get_db)
 ):
     """Send a message and get response (non-streaming)"""
+    from app.services.gemini_service import RateLimitError
     
     # Get or create session
     if request.session_id:
@@ -91,23 +92,31 @@ async def send_message(
     )
     db.add(user_message)
     
-    # Retrieve context
-    chunks = await rag_service.retrieve_context(
-        course_id=request.course_id,
-        query=request.message,
-        session_context=session_context
-    )
-    
-    # Get course info
-    course = db.query(Course).filter(Course.id == request.course_id).first()
-    
-    # Generate response
-    response_text = await rag_service.generate_response(
-        query=request.message,
-        retrieved_chunks=chunks,
-        session_context=session_context,
-        course_name=course.name
-    )
+    try:
+        # Retrieve context
+        chunks = await rag_service.retrieve_context(
+            course_id=request.course_id,
+            query=request.message,
+            session_context=session_context
+        )
+        
+        # Get course info
+        course = db.query(Course).filter(Course.id == request.course_id).first()
+        
+        # Generate response
+        response_text = await rag_service.generate_response(
+            query=request.message,
+            retrieved_chunks=chunks,
+            session_context=session_context,
+            course_name=course.name
+        )
+    except RateLimitError as e:
+        # Return a friendly error message
+        response_text = f"⚠️ **Rate Limit Reached**\n\nThe AI service has reached its request limit. Please wait about {e.retry_after} seconds before trying again.\n\nThis happens because the free tier of the Gemini API has a limit of 20 requests per minute."
+        chunks = []
+    except Exception as e:
+        response_text = f"⚠️ **Error**\n\nSorry, there was an error generating a response. Please try again.\n\nError details: {str(e)[:100]}"
+        chunks = []
     
     # Save assistant message
     assistant_message = Message(

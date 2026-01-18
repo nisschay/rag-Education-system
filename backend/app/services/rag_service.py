@@ -53,42 +53,59 @@ class RAGService:
         logger.info(f"Generating response for: {query[:100]}...")
         logger.info(f"Using {len(retrieved_chunks)} context chunks")
         
+        # Analyze query complexity to adjust response length
+        query_words = len(query.split())
+        is_simple_query = query_words < 10 and not any(word in query.lower() for word in ['explain', 'describe', 'compare', 'analyze', 'list', 'all', 'everything', 'detail'])
+        is_comprehensive_query = any(word in query.lower() for word in ['everything', 'all', 'comprehensive', 'detailed', 'complete', 'full'])
+        
         # Build context from chunks with clear formatting
         if retrieved_chunks:
+            # Use fewer chunks for simple queries
+            num_chunks = 3 if is_simple_query else 8
             context_parts = []
-            for i, chunk in enumerate(retrieved_chunks[:8], 1):
+            for i, chunk in enumerate(retrieved_chunks[:num_chunks], 1):
                 source = chunk['metadata'].get('source', chunk['metadata'].get('unit_name', 'Document'))
                 context_parts.append(f"--- Context {i} (from: {source}) ---\n{chunk['content']}")
             context_text = "\n\n".join(context_parts)
         else:
             context_text = "No relevant context found in the documents."
         
-        # Build system instruction - focused on being a helpful tutor
+        # Build system instruction - adjust based on query type
+        length_instruction = ""
+        if is_simple_query:
+            length_instruction = "Keep your answer concise and to the point - a few sentences is often enough for simple questions."
+        elif is_comprehensive_query:
+            length_instruction = "Provide a comprehensive, detailed answer with examples and thorough explanations."
+        else:
+            length_instruction = "Match the depth and length of your response to the complexity of the question."
+        
         system_instruction = f"""You are an expert AI tutor helping students learn about: {course_name}.
 
 Your responsibilities:
-1. Answer the student's specific question directly and thoroughly
-2. Use the provided context from their study materials to give accurate answers
-3. Explain concepts clearly with examples when helpful
+1. Answer the student's specific question directly
+2. Use the provided context from their study materials
+3. Use markdown formatting for better readability (headers, bullet points, bold text, etc.)
 4. If the context doesn't contain enough information, be honest about it
-5. Keep answers focused on what the student asked
 
-Important:
-- Base your answer primarily on the provided context
-- Be conversational and encouraging
-- Give different, specific answers for different questions
-- Don't repeat the same generic response"""
+Response guidelines:
+- {length_instruction}
+- For simple yes/no or factual questions, be brief
+- For "what is" questions, give a clear definition and brief explanation
+- For "explain" or "how" questions, provide more detail
+- For requests for "everything" or "all", be comprehensive with structured formatting
+- Use bullet points and headers to organize longer responses
+- Always format code examples in code blocks"""
 
         # Build prompt with clear separation
-        prompt = f"""Here is relevant content from the student's study materials:
+        prompt = f"""Context from study materials:
 
 {context_text}
 
 ---
 
-The student asks: "{query}"
+Student's question: "{query}"
 
-Please provide a helpful, specific answer to their question based on the context above. If the context doesn't fully address their question, explain what you can and note what's missing."""
+Provide a helpful answer. Remember to match the response length to the question complexity - short answers for simple questions, detailed answers for complex ones."""
 
         # Generate response
         logger.debug(f"Sending prompt to Gemini (length: {len(prompt)})")

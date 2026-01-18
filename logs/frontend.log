@@ -37,3 +37,67 @@
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+7:44:37 PM [vite] (client) Re-optimizing dependencies because lockfile has changed
+
+  VITE v7.3.1  ready in 1841 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1781 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 3124 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 905 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 825 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1436 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1050 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

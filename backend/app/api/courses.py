@@ -108,14 +108,14 @@ async def create_unit(
     return new_unit
 
 @router.post("/{course_id}/upload")
-async def upload_document(
+async def upload_documents(
     course_id: int,
-    file: UploadFile = File(...),
+    files: list[UploadFile] = File(...),
     unit_id: int = None,
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Upload a PDF document to a course"""
+    """Upload multiple PDF documents to a course"""
     course = db.query(Course).filter(
         Course.id == course_id,
         Course.user_id == current_user.id
@@ -124,77 +124,108 @@ async def upload_document(
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
     
-    # Save file
-    upload_dir = os.getenv("UPLOAD_DIR", "./uploads")
-    os.makedirs(upload_dir, exist_ok=True)
-    file_path = os.path.join(upload_dir, f"{course_id}_{file.filename}")
+    # Limits
+    MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB per file
+    MAX_FILES = 10  # Max 10 files at once
     
-    async with aiofiles.open(file_path, 'wb') as f:
-        content = await file.read()
-        file_size = len(content)
-        await f.write(content)
+    if len(files) > MAX_FILES:
+        raise HTTPException(status_code=400, detail=f"Maximum {MAX_FILES} files allowed per upload")
     
-    logger.info(f"Uploaded file {file.filename} ({file_size} bytes) for course {course_id}")
+    uploaded_files = []
     
-    # Extract text
-    text = await document_processor.extract_text_from_pdf(file_path)
-    
-    # Get or create default unit
-    if not unit_id:
-        default_unit = db.query(Unit).filter(
-            Unit.course_id == course_id,
-            Unit.level == 0
-        ).first()
+    for file in files:
+        if not file.filename.lower().endswith('.pdf'):
+            continue
+            
+        # Save file
+        upload_dir = os.getenv("UPLOAD_DIR", "./uploads")
+        os.makedirs(upload_dir, exist_ok=True)
+        file_path = os.path.join(upload_dir, f"{course_id}_{file.filename}")
         
-        if not default_unit:
-            default_unit = Unit(
-                course_id=course_id,
-                name=f"{course.name} - Main",
-                order=0,
-                level=0
-            )
-            db.add(default_unit)
-            db.commit()
-            db.refresh(default_unit)
+        async with aiofiles.open(file_path, 'wb') as f:
+            content = await file.read()
+            file_size = len(content)
+            
+            if file_size > MAX_FILE_SIZE:
+                logger.warning(f"File {file.filename} exceeds size limit ({file_size} > {MAX_FILE_SIZE})")
+                continue
+                
+            await f.write(content)
         
-        unit_id = default_unit.id
+        logger.info(f"Uploaded file {file.filename} ({file_size} bytes) for course {course_id}")
+        
+        # Extract text
+        text = await document_processor.extract_text_from_pdf(file_path)
+        
+        # Get or create default unit
+        target_unit_id = unit_id
+        if not target_unit_id:
+            default_unit = db.query(Unit).filter(
+                Unit.course_id == course_id,
+                Unit.level == 0
+            ).first()
+            
+            if not default_unit:
+                default_unit = Unit(
+                    course_id=course_id,
+                    name=f"{course.name} - Main",
+                    order=0,
+                    level=0
+                )
+                db.add(default_unit)
+                db.commit()
+                db.refresh(default_unit)
+            
+            target_unit_id = default_unit.id
+        
+        # Create hierarchical chunks
+        chunks = await document_processor.create_hierarchical_chunks(
+            text=text,
+            unit_id=target_unit_id,
+            unit_name=course.name
+        )
+        
+        # Generate unique IDs based on timestamp
+        import time
+        timestamp = int(time.time() * 1000)
+        
+        # Add to vector store
+        documents = [chunk["content"] for chunk in chunks]
+        metadatas = [chunk["metadata"] for chunk in chunks]
+        ids = [f"course_{course_id}_file_{timestamp}_chunk_{i}" for i in range(len(chunks))]
+        
+        await vector_store.add_documents(
+            course_id=course_id,
+            documents=documents,
+            metadatas=metadatas,
+            ids=ids
+        )
+        
+        # Save uploaded file record
+        uploaded_file = UploadedFile(
+            course_id=course_id,
+            filename=file.filename,
+            original_filename=file.filename,
+            file_size=file_size,
+            file_path=file_path,
+            chunks_count=len(chunks)
+        )
+        db.add(uploaded_file)
+        uploaded_files.append({
+            "filename": file.filename,
+            "size": file_size,
+            "chunks": len(chunks)
+        })
     
-    # Create hierarchical chunks
-    chunks = await document_processor.create_hierarchical_chunks(
-        text=text,
-        unit_id=unit_id,
-        unit_name=course.name
-    )
-    
-    # Add to vector store
-    documents = [chunk["content"] for chunk in chunks]
-    metadatas = [chunk["metadata"] for chunk in chunks]
-    ids = [f"course_{course_id}_chunk_{i}" for i in range(len(chunks))]
-    
-    await vector_store.add_documents(
-        course_id=course_id,
-        documents=documents,
-        metadatas=metadatas,
-        ids=ids
-    )
-    
-    # Save file record to database
-    uploaded_file = UploadedFile(
-        course_id=course_id,
-        filename=f"{course_id}_{file.filename}",
-        original_filename=file.filename,
-        file_size=file_size,
-        file_path=file_path,
-        chunks_count=len(chunks)
-    )
-    db.add(uploaded_file)
     db.commit()
     
     return {
-        "message": "Document uploaded and processed",
-        "chunks_created": len(chunks),
-        "file_path": file_path,
-        "file_size": file_size
+        "message": f"Successfully uploaded {len(uploaded_files)} document(s)",
+        "files": uploaded_files,
+        "limits": {
+            "max_file_size_mb": MAX_FILE_SIZE // (1024 * 1024),
+            "max_files_per_upload": MAX_FILES
+        }
     }
 
 @router.get("/{course_id}/structure")

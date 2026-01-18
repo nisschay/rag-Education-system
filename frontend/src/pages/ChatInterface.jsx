@@ -1,11 +1,13 @@
 import { useState, useRef, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 import { coursesAPI, chatAPI } from '@/services/api';
 import { useAuth } from '@/App';
 import { Button } from '@/components/ui/button';
+import { Textarea } from '@/components/ui/textarea';
 import { Input } from '@/components/ui/input';
-import { Card } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Avatar, AvatarFallback } from '@/components/ui/avatar';
@@ -52,10 +54,11 @@ export default function ChatInterface() {
   const { user } = useAuth();
   const [message, setMessage] = useState('');
   const [isUploadOpen, setIsUploadOpen] = useState(false);
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
   const messagesEndRef = useRef(null);
+  const textareaRef = useRef(null);
 
   const { data: course } = useQuery({
     queryKey: ['course', courseId],
@@ -86,15 +89,18 @@ export default function ChatInterface() {
     onSuccess: () => {
       refetchChat();
       setMessage('');
+      if (textareaRef.current) {
+        textareaRef.current.style.height = 'auto';
+      }
     },
   });
 
   const uploadMutation = useMutation({
-    mutationFn: () => coursesAPI.uploadDocument(courseId, file),
+    mutationFn: () => coursesAPI.uploadDocuments(courseId, files),
     onSuccess: () => {
       refetchDocs();
       setIsUploadOpen(false);
-      setFile(null);
+      setFiles([]);
     },
   });
 
@@ -109,6 +115,21 @@ export default function ChatInterface() {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [chatHistory]);
 
+  // Auto-resize textarea
+  const handleTextareaChange = (e) => {
+    setMessage(e.target.value);
+    const textarea = e.target;
+    textarea.style.height = 'auto';
+    textarea.style.height = Math.min(textarea.scrollHeight, 200) + 'px';
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter' && !e.shiftKey) {
+      e.preventDefault();
+      handleSend(e);
+    }
+  };
+
   const handleSend = (e) => {
     e.preventDefault();
     if (!message.trim() || sendMessageMutation.isPending) return;
@@ -116,13 +137,18 @@ export default function ChatInterface() {
   };
 
   const handleUpload = async () => {
-    if (!file) return;
+    if (files.length === 0) return;
     setUploading(true);
     try {
       await uploadMutation.mutateAsync();
     } finally {
       setUploading(false);
     }
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFiles(selectedFiles);
   };
 
   const formatFileSize = (bytes) => {
@@ -178,29 +204,35 @@ export default function ChatInterface() {
               </DialogTrigger>
               <DialogContent>
                 <DialogHeader>
-                  <DialogTitle>Upload Document</DialogTitle>
+                  <DialogTitle>Upload Documents</DialogTitle>
                   <DialogDescription>
-                    Upload a PDF file to add to this course.
+                    Upload PDF files to add to this course (max 10 files, 10MB each).
                   </DialogDescription>
                 </DialogHeader>
                 <div className="py-4">
                   <Input
                     type="file"
                     accept=".pdf"
-                    onChange={(e) => setFile(e.target.files[0])}
+                    multiple
+                    onChange={handleFileChange}
                   />
-                  {file && (
-                    <p className="text-sm text-muted-foreground mt-2">
-                      Selected: {file.name} ({formatFileSize(file.size)})
-                    </p>
+                  {files.length > 0 && (
+                    <div className="mt-3 space-y-1">
+                      <p className="text-sm font-medium">Selected files:</p>
+                      {files.map((file, idx) => (
+                        <p key={idx} className="text-sm text-muted-foreground">
+                          • {file.name} ({formatFileSize(file.size)})
+                        </p>
+                      ))}
+                    </div>
                   )}
                 </div>
                 <DialogFooter>
-                  <Button variant="outline" onClick={() => setIsUploadOpen(false)}>
+                  <Button variant="outline" onClick={() => { setIsUploadOpen(false); setFiles([]); }}>
                     Cancel
                   </Button>
-                  <Button onClick={handleUpload} disabled={!file || uploading}>
-                    {uploading ? 'Uploading...' : 'Upload'}
+                  <Button onClick={handleUpload} disabled={files.length === 0 || uploading}>
+                    {uploading ? 'Uploading...' : `Upload ${files.length} file${files.length !== 1 ? 's' : ''}`}
                   </Button>
                 </DialogFooter>
               </DialogContent>
@@ -330,7 +362,15 @@ export default function ChatInterface() {
                         : "bg-muted"
                     )}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                    {msg.role === 'user' ? (
+                      <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                    ) : (
+                      <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-ol:my-1 prose-li:my-0">
+                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                          {msg.content}
+                        </ReactMarkdown>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
@@ -358,19 +398,24 @@ export default function ChatInterface() {
         {/* Input Area */}
         <div className="border-t p-4">
           <form onSubmit={handleSend} className="max-w-3xl mx-auto">
-            <div className="flex gap-2">
-              <Input
+            <div className="flex gap-2 items-end">
+              <Textarea
+                ref={textareaRef}
                 placeholder={docList.length === 0 
                   ? "Upload documents first to start asking questions..."
-                  : "Ask a question about your documents..."
+                  : "Ask a question about your documents... (Shift+Enter for new line)"
                 }
                 value={message}
-                onChange={(e) => setMessage(e.target.value)}
+                onChange={handleTextareaChange}
+                onKeyDown={handleKeyDown}
                 disabled={docList.length === 0 || sendMessageMutation.isPending}
-                className="flex-1"
+                className="flex-1 min-h-[44px] max-h-[200px] resize-none"
+                rows={1}
               />
               <Button 
                 type="submit" 
+                size="icon"
+                className="h-11 w-11 shrink-0"
                 disabled={!message.trim() || docList.length === 0 || sendMessageMutation.isPending}
               >
                 <Send className="h-4 w-4" />

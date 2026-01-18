@@ -42,9 +42,11 @@ export const coursesAPI = {
   getCourse: (courseId) => api.get(`/api/courses/${courseId}`),
   createCourse: (data) => api.post('/api/courses/', data),
   deleteCourse: (courseId) => api.delete(`/api/courses/${courseId}`),
-  uploadDocument: (courseId, file, unitId) => {
+  uploadDocuments: (courseId, files, unitId) => {
     const formData = new FormData();
-    formData.append('file', file);
+    // Support both single file and multiple files
+    const fileList = Array.isArray(files) ? files : [files];
+    fileList.forEach(file => formData.append('files', file));
     if (unitId) formData.append('unit_id', unitId);
     return api.post(`/api/courses/${courseId}/upload`, formData);
   },

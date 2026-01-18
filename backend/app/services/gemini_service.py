@@ -1,11 +1,19 @@
 from google import genai
 from google.genai import types
 import os
+import time
 from dotenv import load_dotenv
 from app.utils.logging_config import get_logger
 
 load_dotenv()
 logger = get_logger("gemini_service")
+
+class RateLimitError(Exception):
+    """Raised when API rate limit is exceeded"""
+    def __init__(self, message, retry_after=60):
+        self.message = message
+        self.retry_after = retry_after
+        super().__init__(self.message)
 
 class GeminiService:
     def __init__(self):
@@ -16,24 +24,60 @@ class GeminiService:
         self.embedding_model = 'text-embedding-004'
         logger.info(f"GeminiService initialized with model: {self.model_name}")
     
-    async def generate_text(self, prompt: str, system_instruction: str = None) -> str:
-        """Generate text using Gemini 2.5 Flash"""
-        try:
-            logger.debug(f"Generating text with prompt length: {len(prompt)}")
-            config = types.GenerateContentConfig(
-                system_instruction=system_instruction
-            ) if system_instruction else None
-            
-            response = self.client.models.generate_content(
-                model=self.model_name,
-                contents=prompt,
-                config=config
-            )
-            logger.debug(f"Generated response length: {len(response.text)}")
-            return response.text
-        except Exception as e:
-            logger.error(f"Error generating text: {e}")
-            raise
+    async def generate_text(self, prompt: str, system_instruction: str = None, max_retries: int = 2) -> str:
+        """Generate text using Gemini 2.5 Flash with retry logic"""
+        last_error = None
+        
+        for attempt in range(max_retries + 1):
+            try:
+                logger.debug(f"Generating text with prompt length: {len(prompt)} (attempt {attempt + 1})")
+                config = types.GenerateContentConfig(
+                    system_instruction=system_instruction
+                ) if system_instruction else None
+                
+                response = self.client.models.generate_content(
+                    model=self.model_name,
+                    contents=prompt,
+                    config=config
+                )
+                logger.debug(f"Generated response length: {len(response.text)}")
+                return response.text
+            except Exception as e:
+                error_str = str(e)
+                logger.error(f"Error generating text (attempt {attempt + 1}): {e}")
+                
+                # Check for rate limit error
+                if "429" in error_str or "RESOURCE_EXHAUSTED" in error_str:
+                    # Extract retry delay if available
+                    retry_after = 60
+                    if "retry in" in error_str.lower():
+                        try:
+                            import re
+                            match = re.search(r'retry in (\d+)', error_str.lower())
+                            if match:
+                                retry_after = int(match.group(1))
+                        except:
+                            pass
+                    
+                    if attempt < max_retries:
+                        wait_time = min(retry_after, 30)  # Wait max 30 seconds between retries
+                        logger.info(f"Rate limited. Waiting {wait_time}s before retry...")
+                        time.sleep(wait_time)
+                        continue
+                    else:
+                        raise RateLimitError(
+                            f"API rate limit exceeded. The free tier allows 20 requests per minute. Please wait {retry_after} seconds.",
+                            retry_after
+                        )
+                
+                last_error = e
+                if attempt < max_retries:
+                    time.sleep(2)  # Brief pause before retry for other errors
+                    continue
+                raise
+        
+        if last_error:
+            raise last_error
     
     async def generate_streaming(self, prompt: str, system_instruction: str = None):
         """Generate text with streaming"""

@@ -196,7 +196,7 @@ export default function Dashboard() {
 function CourseCard({ course, navigate }) {
   const [isUploadOpen, setIsUploadOpen] = useState(false);
   const [isDocsOpen, setIsDocsOpen] = useState(false);
-  const [file, setFile] = useState(null);
+  const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const queryClient = useQueryClient();
 
@@ -209,11 +209,11 @@ function CourseCard({ course, navigate }) {
   });
 
   const uploadMutation = useMutation({
-    mutationFn: () => coursesAPI.uploadDocument(course.id, file),
+    mutationFn: () => coursesAPI.uploadDocuments(course.id, files),
     onSuccess: () => {
       queryClient.invalidateQueries(['documents', course.id]);
       setIsUploadOpen(false);
-      setFile(null);
+      setFiles([]);
     },
   });
 
@@ -225,13 +225,18 @@ function CourseCard({ course, navigate }) {
   });
 
   const handleUpload = async () => {
-    if (!file) return;
+    if (files.length === 0) return;
     setUploading(true);
     try {
       await uploadMutation.mutateAsync();
     } finally {
       setUploading(false);
     }
+  };
+
+  const handleFileChange = (e) => {
+    const selectedFiles = Array.from(e.target.files);
+    setFiles(selectedFiles);
   };
 
   const formatFileSize = (bytes) => {
@@ -285,29 +290,35 @@ function CourseCard({ course, navigate }) {
           </DialogTrigger>
           <DialogContent>
             <DialogHeader>
-              <DialogTitle>Upload Document</DialogTitle>
+              <DialogTitle>Upload Documents</DialogTitle>
               <DialogDescription>
-                Upload a PDF file to add to this course.
+                Upload PDF files to add to this course (max 10 files, 10MB each).
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
               <Input
                 type="file"
                 accept=".pdf"
-                onChange={(e) => setFile(e.target.files[0])}
+                multiple
+                onChange={handleFileChange}
               />
-              {file && (
-                <p className="text-sm text-muted-foreground mt-2">
-                  Selected: {file.name} ({formatFileSize(file.size)})
-                </p>
+              {files.length > 0 && (
+                <div className="mt-3 space-y-1">
+                  <p className="text-sm font-medium">Selected files:</p>
+                  {files.map((f, idx) => (
+                    <p key={idx} className="text-sm text-muted-foreground">
+                      • {f.name} ({formatFileSize(f.size)})
+                    </p>
+                  ))}
+                </div>
               )}
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => setIsUploadOpen(false)}>
+              <Button variant="outline" onClick={() => { setIsUploadOpen(false); setFiles([]); }}>
                 Cancel
               </Button>
-              <Button onClick={handleUpload} disabled={!file || uploading}>
-                {uploading ? 'Uploading...' : 'Upload'}
+              <Button onClick={handleUpload} disabled={files.length === 0 || uploading}>
+                {uploading ? 'Uploading...' : `Upload ${files.length} file${files.length !== 1 ? 's' : ''}`}
               </Button>
             </DialogFooter>
           </DialogContent>
