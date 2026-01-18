@@ -2,7 +2,16 @@
 node_modules/
 __pycache__/
 *.pyc
+
+# Environment files - NEVER commit these!
 .env
+.env.local
+.env.production
+.env*.local
+backend/.env
+frontend/.env
+!.env.example
+!.env.production.example
 
 # Build outputs
 dist/
