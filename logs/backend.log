@@ -1402,3 +1402,21 @@ INFO:     Waiting for application startup.
 2026-01-18 10:19:27 - rag_education.main - INFO - Database initialized (PostgreSQL)
 INFO:     Application startup complete.
 INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45446 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:53644 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:47218 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:48970 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:48970 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:60848 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:33306 - "OPTIONS /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:37992 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52212 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:57026 - "OPTIONS /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:52142 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:41918 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:56530 - "OPTIONS /api/auth/login HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44092 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44092 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44092 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:44106 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:54352 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request

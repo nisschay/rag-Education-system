@@ -1,8 +1,7 @@
 """Application configuration - Production ready settings"""
-import os
 from pydantic_settings import BaseSettings
-from functools import lru_cache
 from typing import List
+import os
 
 
 class Settings(BaseSettings):
@@ -12,20 +11,23 @@ class Settings(BaseSettings):
     DEBUG: bool = False
     ENVIRONMENT: str = "development"
     
-    # Database - Use Supabase PostgreSQL in production
-    DATABASE_URL: str = "postgresql://rag_user:rag_secure_pwd_2026@localhost:5432/rag_education"
+    # Database - Use environment variable directly
+    DATABASE_URL: str = os.environ.get(
+        "DATABASE_URL", 
+        "postgresql://rag_user:rag_secure_pwd_2026@localhost:5432/rag_education"
+    )
     
     # Security
-    SECRET_KEY: str = "change-this-in-production"
+    SECRET_KEY: str = os.environ.get("SECRET_KEY", "change-this-in-production")
     ALGORITHM: str = "HS256"
     ACCESS_TOKEN_EXPIRE_MINUTES: int = 10080  # 7 days
     
     # Google OAuth
-    GOOGLE_CLIENT_ID: str = ""
-    GOOGLE_CLIENT_SECRET: str = ""
+    GOOGLE_CLIENT_ID: str = os.environ.get("GOOGLE_CLIENT_ID", "")
+    GOOGLE_CLIENT_SECRET: str = os.environ.get("GOOGLE_CLIENT_SECRET", "")
     
     # Gemini
-    GEMINI_API_KEY: str = ""
+    GEMINI_API_KEY: str = os.environ.get("GEMINI_API_KEY", "")
     
     # Storage
     UPLOAD_DIR: str = "./uploads"
@@ -37,7 +39,10 @@ class Settings(BaseSettings):
     RATE_LIMIT_PER_MINUTE: int = 60
     
     # CORS - Set CORS_ORIGINS env var as comma-separated list for production
-    CORS_ORIGINS_STR: str = "http://localhost:5173,http://localhost:3000"
+    CORS_ORIGINS_STR: str = os.environ.get(
+        "CORS_ORIGINS_STR",
+        "http://localhost:5173,http://localhost:3000"
+    )
     
     @property
     def CORS_ORIGINS(self) -> List[str]:
@@ -46,11 +51,7 @@ class Settings(BaseSettings):
     class Config:
         env_file = ".env"
         case_sensitive = True
+        extra = "allow"
 
 
-@lru_cache()
-def get_settings() -> Settings:
-    return Settings()
-
-
-settings = get_settings()
+settings = Settings()

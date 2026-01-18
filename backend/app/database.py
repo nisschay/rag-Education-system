@@ -2,15 +2,20 @@ from sqlalchemy import create_engine, inspect, text
 from sqlalchemy.orm import sessionmaker
 from app.models.schemas import Base
 import os
-from dotenv import load_dotenv
 
-load_dotenv()
+# Get DATABASE_URL from environment (Render sets this directly)
+# Don't use load_dotenv() in production - it can cause issues
+DATABASE_URL = os.environ.get("DATABASE_URL", "sqlite:///./education.db")
 
-DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///./education.db")
+# Handle Render's postgres:// vs postgresql:// URL format
+if DATABASE_URL.startswith("postgres://"):
+    DATABASE_URL = DATABASE_URL.replace("postgres://", "postgresql://", 1)
 
 engine = create_engine(
     DATABASE_URL, 
-    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {}
+    connect_args={"check_same_thread": False} if "sqlite" in DATABASE_URL else {},
+    pool_pre_ping=True,  # Helps with connection reliability
+    pool_recycle=300,    # Recycle connections every 5 minutes
 )
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
@@ -29,13 +34,16 @@ def get_db():
 
 def _ensure_user_password_column():
     """Add password_hash to users table if missing (for existing DBs)."""
-    inspector = inspect(engine)
-    if "users" not in inspector.get_table_names():
-        return
-    columns = [col["name"] for col in inspector.get_columns("users")]
-    if "password_hash" in columns:
-        return
+    try:
+        inspector = inspect(engine)
+        if "users" not in inspector.get_table_names():
+            return
+        columns = [col["name"] for col in inspector.get_columns("users")]
+        if "password_hash" in columns:
+            return
 
-    with engine.connect() as conn:
-        conn.execute(text("ALTER TABLE users ADD COLUMN password_hash VARCHAR"))
-        conn.commit()
+        with engine.connect() as conn:
+            conn.execute(text("ALTER TABLE users ADD COLUMN password_hash VARCHAR"))
+            conn.commit()
+    except Exception as e:
+        print(f"Warning: Could not ensure password column: {e}")
