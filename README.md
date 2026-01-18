@@ -1,68 +1,62 @@
-# RAG Education System
+# 📚 RAG Education System
 
-A complete RAG (Retrieval-Augmented Generation) education system with hierarchical document processing, powered by **Gemini 2.5 Flash**.
+An AI-powered learning platform that lets you upload study materials and chat with an intelligent tutor that understands your content. Built with **Gemini 2.5 Flash** and RAG (Retrieval-Augmented Generation) technology.
 
-## Features
+![License](https://img.shields.io/badge/license-MIT-blue.svg)
+![Python](https://img.shields.io/badge/python-3.12-green.svg)
+![React](https://img.shields.io/badge/react-18-blue.svg)
 
-- 📚 **Course Management**: Create and organize courses with hierarchical units
-- 📄 **PDF Upload**: Upload PDFs and automatically process them into searchable chunks
-- 🔍 **RAG-powered Chat**: Ask questions and get AI-generated answers based on your course materials
-- 🎯 **Intent Classification**: Automatically adjusts retrieval strategy based on query type
-- 💾 **Persistent Storage**: ChromaDB for vector storage, SQLite for data
+## ✨ Features
 
-## Tech Stack
+- 🔐 **Authentication** - Email/password + Google OAuth sign-in
+- 📚 **Course Management** - Create and organize multiple courses
+- 📄 **PDF Upload** - Upload PDFs (up to 10MB) and auto-process into searchable chunks
+- 🤖 **AI-Powered Chat** - Ask questions and get accurate answers from your materials
+- 🧠 **Smart Fallback** - When content isn't in your docs, the AI uses general knowledge
+- 📐 **Math Support** - LaTeX/KaTeX rendering for mathematical formulas (λ, π, etc.)
+- 🌙 **Dark Mode** - Beautiful dark-themed UI
+- 🔒 **Production Ready** - JWT auth, rate limiting, PostgreSQL support
 
-### Backend
-- FastAPI
-- SQLAlchemy + SQLite
-- ChromaDB (Vector Store)
-- Google Gemini 2.5 Flash (LLM)
-- PyPDF2 (PDF Processing)
+## 🛠️ Tech Stack
 
-### Frontend
-- React 18 + Vite
-- TailwindCSS
-- React Query
-- React Router
+| Layer | Technology |
+|-------|------------|
+| **Frontend** | React 18, Vite, TailwindCSS, React Query, React Router |
+| **Backend** | FastAPI, SQLAlchemy, Pydantic |
+| **Database** | PostgreSQL (production) / SQLite (development) |
+| **Vector Store** | ChromaDB with Gemini embeddings |
+| **AI** | Google Gemini 2.5 Flash |
+| **Auth** | JWT tokens, bcrypt, Google OAuth 2.0 |
 
-## Quick Start
+## 🚀 Quick Start
 
-### 1. Setup Backend
+### Prerequisites
 
-```bash
-cd backend
+- Python 3.12+
+- Node.js 18+
+- PostgreSQL 16 (optional, for production)
+- [Gemini API Key](https://aistudio.google.com/app/apikey)
 
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-
-# Install dependencies
-pip install -r requirements.txt
-
-# Add your Gemini API key to .env
-# Edit backend/.env and set GEMINI_API_KEY=your_key_here
-
-# Run backend
-python -m app.main
-```
-
-The backend API will be available at `http://localhost:8000`
-
-### 2. Setup Frontend
+### Option 1: Local Development (Recommended)
 
 ```bash
-cd frontend
+# Clone the repository
+git clone https://github.com/yourusername/rag-education-system.git
+cd rag-education-system
 
-# Install dependencies
-npm install
+# Configure environment
+cp backend/.env.example backend/.env
+# Edit backend/.env and add your GEMINI_API_KEY
 
-# Run frontend
-npm run dev
+# Start everything with one command
+./start.sh
 ```
 
-The frontend will be available at `http://localhost:5173`
+- Frontend: http://localhost:5173
+- Backend API: http://localhost:8000
+- API Docs: http://localhost:8000/docs
 
-### 3. Using Docker (Alternative)
+### Option 2: Docker
 
 ```bash
 # Set your Gemini API key
@@ -72,86 +66,203 @@ export GEMINI_API_KEY=your_key_here
 docker-compose up --build
 ```
 
-## API Endpoints
+- Frontend: http://localhost (port 80)
+- Backend: http://localhost:8000
 
-### Authentication
-- `POST /api/auth/login` - Login/Register user
+## 🐳 Docker Explained
 
-### Courses
-- `GET /api/courses/` - Get all courses
-- `POST /api/courses/` - Create a course
-- `POST /api/courses/{id}/upload` - Upload PDF document
-- `GET /api/courses/{id}/structure` - Get course structure
-- `POST /api/courses/{id}/units` - Create a unit
+Docker packages your application into containers - isolated environments that include everything needed to run your code. This ensures "it works on my machine" becomes "it works everywhere."
 
-### Chat
-- `POST /api/chat/session` - Create chat session
-- `POST /api/chat/message` - Send message (non-streaming)
-- `POST /api/chat/message/stream` - Send message (streaming)
-- `GET /api/chat/sessions` - Get all sessions
-- `GET /api/chat/sessions/{id}/messages` - Get session messages
-
-## Environment Variables
-
-### Backend (.env)
-```
-GEMINI_API_KEY=your_gemini_api_key
-DATABASE_URL=sqlite:///./education.db
-SECRET_KEY=your-secret-key
-UPLOAD_DIR=./uploads
-CHROMA_DIR=./storage/chroma_db
+### Backend Dockerfile (`backend/Dockerfile`)
+```dockerfile
+FROM python:3.12-slim        # Start with lightweight Python image
+WORKDIR /app                  # Set /app as working directory
+COPY requirements.txt .       # Copy dependencies file first
+RUN pip install ...           # Install Python packages
+COPY . .                      # Copy all application code
+CMD ["uvicorn", ...]          # Command to start FastAPI server on port 8000
 ```
 
-### Frontend (.env)
-```
-VITE_API_URL=http://localhost:8000
+**What it does**: Creates a container with Python, installs your dependencies, copies your code, and runs the FastAPI server.
+
+### Frontend Dockerfile (`frontend/Dockerfile`)
+```dockerfile
+# Stage 1: Build the React app
+FROM node:18-alpine AS build  # Node.js to build the app
+RUN npm install               # Install npm packages
+RUN npm run build             # Build static HTML/CSS/JS files
+
+# Stage 2: Serve with Nginx
+FROM nginx:alpine             # Lightweight web server
+COPY --from=build /app/dist   # Copy built files from stage 1
+CMD ["nginx", ...]            # Serve static files on port 80
 ```
 
-## Project Structure
+**What it does**: Uses a "multi-stage build" - first builds your React app, then copies only the built files to a tiny Nginx server. This makes the final image much smaller (~20MB vs ~1GB).
+
+### docker-compose.yml
+```yaml
+services:
+  backend:   # FastAPI on port 8000
+  frontend:  # Nginx on port 80
+```
+
+**What it does**: Orchestrates both containers, sets up networking between them, and manages environment variables and data volumes.
+
+## ☁️ Production Deployment (Free)
+
+### Recommended Stack
+
+| Service | Platform | Cost |
+|---------|----------|------|
+| Frontend | Vercel | Free |
+| Backend | Render | Free (750h/mo) |
+| Database | Supabase | Free (500MB) |
+
+### Step 1: Supabase (PostgreSQL Database)
+
+1. Create account at [supabase.com](https://supabase.com)
+2. Create new project (save the password!)
+3. Go to **Settings → Database → Connection string (URI)**
+4. Copy the connection string
+
+### Step 2: Render (Backend API)
+
+1. Create account at [render.com](https://render.com)
+2. **New → Web Service → Connect GitHub repo**
+3. Configure:
+   - **Root Directory**: `backend`
+   - **Build Command**: `pip install -r requirements.txt`
+   - **Start Command**: `uvicorn app.main:app --host 0.0.0.0 --port $PORT`
+4. Add **Environment Variables**:
+
+| Key | Value |
+|-----|-------|
+| `DATABASE_URL` | Your Supabase connection string |
+| `GEMINI_API_KEY` | Your Gemini API key |
+| `SECRET_KEY` | Generate: `openssl rand -hex 32` |
+| `GOOGLE_CLIENT_ID` | Your Google OAuth Client ID |
+| `CORS_ORIGINS_STR` | `https://your-app.vercel.app` |
+| `ENVIRONMENT` | `production` |
+
+### Step 3: Vercel (Frontend)
+
+1. Create account at [vercel.com](https://vercel.com)
+2. **Import GitHub repo**
+3. Configure:
+   - **Framework**: Vite
+   - **Root Directory**: `frontend`
+4. Add **Environment Variables**:
+
+| Key | Value |
+|-----|-------|
+| `VITE_API_URL` | `https://your-backend.onrender.com` |
+| `VITE_GOOGLE_CLIENT_ID` | Your Google OAuth Client ID |
+
+### Step 4: Google OAuth Setup
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/apis/credentials)
+2. Create **OAuth 2.0 Client ID**
+3. Add to **Authorized JavaScript origins**:
+   - `http://localhost:5173`
+   - `https://your-app.vercel.app`
+
+## 📁 Project Structure
 
 ```
 rag-education-system/
 ├── backend/
 │   ├── app/
-│   │   ├── api/
-│   │   │   ├── auth.py
-│   │   │   ├── courses.py
-│   │   │   └── chat.py
-│   │   ├── models/
-│   │   │   └── schemas.py
-│   │   ├── services/
-│   │   │   ├── gemini_service.py
-│   │   │   ├── vector_store.py
-│   │   │   ├── document_processor.py
-│   │   │   └── rag_service.py
-│   │   ├── database.py
-│   │   └── main.py
-│   ├── storage/
-│   ├── uploads/
-│   ├── requirements.txt
-│   └── Dockerfile
+│   │   ├── api/           # API routes (auth, courses, chat)
+│   │   ├── core/          # Config, security, JWT
+│   │   ├── models/        # SQLAlchemy database models
+│   │   ├── services/      # Business logic (RAG, vectors, Gemini)
+│   │   └── utils/         # Logging utilities
+│   ├── requirements.txt   # Python dependencies
+│   ├── Dockerfile         # Container build instructions
+│   └── .env              # Environment variables
 ├── frontend/
 │   ├── src/
-│   │   ├── pages/
-│   │   │   ├── Login.jsx
-│   │   │   ├── Dashboard.jsx
-│   │   │   └── ChatInterface.jsx
-│   │   ├── services/
-│   │   │   └── api.js
-│   │   ├── App.jsx
-│   │   └── main.jsx
-│   ├── package.json
-│   └── Dockerfile
-└── docker-compose.yml
+│   │   ├── components/    # Reusable UI components
+│   │   ├── pages/         # Route pages (Login, Dashboard, Chat)
+│   │   ├── services/      # API client (axios)
+│   │   └── lib/           # Utilities
+│   ├── package.json       # Node dependencies
+│   └── Dockerfile         # Container build instructions
+├── docker-compose.yml     # Multi-container orchestration
+├── render.yaml            # Render deployment config
+├── start.sh              # Dev start script
+└── stop.sh               # Dev stop script
 ```
 
-## Usage
+## 🔌 API Endpoints
 
-1. **Login**: Enter your email to create/access your account
-2. **Create Course**: Click "New Course" and add a name/description
-3. **Upload PDF**: Click "Upload" on a course card to add materials
-4. **Chat**: Click "Chat" to ask questions about your course materials
+### Authentication
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/auth/register` | Register new user |
+| POST | `/api/auth/login` | Login with email/password |
+| POST | `/api/auth/google` | Login with Google OAuth |
 
-## License
+### Courses
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/courses/` | Get all courses |
+| POST | `/api/courses/` | Create a course |
+| DELETE | `/api/courses/{id}` | Delete a course |
+| POST | `/api/courses/{id}/upload` | Upload PDF documents |
+| GET | `/api/courses/{id}/documents` | Get course documents |
 
-MIT
+### Chat
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/api/chat/message` | Send message, get AI response |
+| GET | `/api/chat/sessions` | Get chat sessions |
+| GET | `/api/chat/sessions/{id}/messages` | Get messages |
+
+## 🔧 Environment Variables
+
+### Backend (.env)
+```env
+# Required
+GEMINI_API_KEY=your-gemini-api-key
+DATABASE_URL=postgresql://user:pass@host:5432/dbname
+SECRET_KEY=your-256-bit-secret-key
+
+# Optional
+GOOGLE_CLIENT_ID=your-google-oauth-client-id
+CORS_ORIGINS_STR=http://localhost:5173,https://your-app.vercel.app
+ENVIRONMENT=development  # or production
+DEBUG=true
+```
+
+### Frontend (.env)
+```env
+VITE_API_URL=http://localhost:8000
+VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
+```
+
+## 🎓 Student Offers (Free Credits)
+
+Get free cloud credits with your .edu email:
+
+| Program | Benefit | Link |
+|---------|---------|------|
+| **GitHub Student Pack** | $200+ in credits | [education.github.com/pack](https://education.github.com/pack) |
+| **Google Cloud** | $300 free credit | [cloud.google.com/edu](https://cloud.google.com/edu) |
+| **Azure for Students** | $100 free credit | [azure.microsoft.com/free/students](https://azure.microsoft.com/free/students) |
+
+## 📖 Usage
+
+1. **Sign Up/Login**: Create account with email or Google
+2. **Create Course**: Click "New Course" and add a name/description  
+3. **Upload PDFs**: Click on a course, then upload your study materials
+4. **Chat**: Ask questions about your documents - the AI will answer based on your content
+
+## 📝 License
+
+MIT License - see [LICENSE](LICENSE) for details.
+
+---
+
+Built with ❤️ using Gemini 2.5 Flash & RAG Technology

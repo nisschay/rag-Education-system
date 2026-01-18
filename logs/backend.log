@@ -1389,3 +1389,16 @@ INFO:     127.0.0.1:51400 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
 INFO:     127.0.0.1:48052 - "POST /api/auth/google HTTP/1.1" 401 Unauthorized
 2026-01-18 10:11:30 - rag_education.auth - ERROR - Google auth failed: Token used too early, 1768731090 < 1768731092. Check that your computer's clock is set correctly.
 INFO:     127.0.0.1:44130 - "POST /api/auth/google HTTP/1.1" 401 Unauthorized
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 10:19:12 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [20782]
+2026-01-18 10:19:22 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [21989]
+INFO:     Waiting for application startup.
+2026-01-18 10:19:26 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 10:19:26 - rag_education.main - INFO - Environment: development
+2026-01-18 10:19:27 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)

@@ -124,10 +124,12 @@ async def google_auth(request: GoogleAuthRequest, db: Session = Depends(get_db))
         if not settings.GOOGLE_CLIENT_ID:
             raise HTTPException(status_code=500, detail="Google OAuth not configured")
         
+        # Allow 5 seconds clock skew tolerance
         idinfo = id_token.verify_oauth2_token(
             request.credential, 
             requests.Request(), 
-            settings.GOOGLE_CLIENT_ID
+            settings.GOOGLE_CLIENT_ID,
+            clock_skew_in_seconds=10
         )
         
         email = idinfo.get('email')

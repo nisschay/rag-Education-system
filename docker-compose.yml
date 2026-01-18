@@ -1,24 +1,62 @@
+# Docker Compose - Orchestrates multiple containers
+#
+# What this does:
+# - Defines two services (containers): backend and frontend
+# - Sets up networking so they can communicate
+# - Configures environment variables and storage
+#
+# Usage:
+#   docker-compose up --build     # Build and start everything
+#   docker-compose up -d          # Start in background (detached)
+#   docker-compose down           # Stop and remove containers
+#   docker-compose logs -f        # View logs
+#
+# The frontend will be at http://localhost
+# The backend API will be at http://localhost:8000
+
 version: '3.8'
 
 services:
+  # Backend: FastAPI application
   backend:
     build: ./backend
     ports:
-      - "8000:8000"
+      - "8000:8000"           # Map host port 8000 to container port 8000
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
-      - DATABASE_URL=sqlite:///./education.db
+      - DATABASE_URL=sqlite:///./storage/education.db
+      - SECRET_KEY=${SECRET_KEY:-default-secret-change-in-production}
+      - GOOGLE_CLIENT_ID=${GOOGLE_CLIENT_ID:-}
+      - CORS_ORIGINS_STR=http://localhost,http://localhost:5173
       - UPLOAD_DIR=./uploads
       - CHROMA_DIR=./storage/chroma_db
+      - ENVIRONMENT=production
     volumes:
-      - ./backend/storage:/app/storage
-      - ./backend/uploads:/app/uploads
+      # Persist data outside the container
+      - backend_storage:/app/storage
+      - backend_uploads:/app/uploads
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
 
+  # Frontend: React app served by Nginx
   frontend:
     build: ./frontend
     ports:
-      - "80:80"
+      - "80:80"               # Map host port 80 to container port 80
     depends_on:
-      - backend
+      - backend               # Wait for backend to be ready
     restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+# Named volumes for data persistence
+volumes:
+  backend_storage:
+  backend_uploads:

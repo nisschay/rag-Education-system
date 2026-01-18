@@ -246,3 +246,17 @@
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
+10:17:57 AM [vite] (client) hmr update /src/pages/ChatInterface.jsx, /src/index.css
+10:18:19 AM [vite] (client) ✨ new dependencies optimized: remark-math, rehype-katex
+10:18:19 AM [vite] (client) ✨ optimized dependencies changed. reloading
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 2370 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+10:30:14 AM [vite] (client) hmr update /src/pages/ChatInterface.jsx, /src/index.css
+10:30:14 AM [vite] (client) hmr update /src/pages/ChatInterface.jsx, /src/index.css

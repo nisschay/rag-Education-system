@@ -3,6 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
+import 'katex/dist/katex.min.css';
 import { coursesAPI, chatAPI } from '@/services/api';
 import { useAuth } from '@/App';
 import { Button } from '@/components/ui/button';
@@ -366,7 +369,10 @@ export default function ChatInterface() {
                       <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
                     ) : (
                       <div className="prose prose-sm dark:prose-invert max-w-none prose-p:my-1 prose-headings:my-2 prose-ul:my-1 prose-ol:my-1 prose-li:my-0">
-                        <ReactMarkdown remarkPlugins={[remarkGfm]}>
+                        <ReactMarkdown 
+                          remarkPlugins={[remarkGfm, remarkMath]}
+                          rehypePlugins={[rehypeKatex]}
+                        >
                           {msg.content}
                         </ReactMarkdown>
                       </div>

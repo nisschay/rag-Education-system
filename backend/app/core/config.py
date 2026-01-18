@@ -2,6 +2,7 @@
 import os
 from pydantic_settings import BaseSettings
 from functools import lru_cache
+from typing import List
 
 
 class Settings(BaseSettings):
@@ -11,7 +12,7 @@ class Settings(BaseSettings):
     DEBUG: bool = False
     ENVIRONMENT: str = "development"
     
-    # Database
+    # Database - Use Supabase PostgreSQL in production
     DATABASE_URL: str = "postgresql://rag_user:rag_secure_pwd_2026@localhost:5432/rag_education"
     
     # Security
@@ -35,12 +36,12 @@ class Settings(BaseSettings):
     # Rate limiting
     RATE_LIMIT_PER_MINUTE: int = 60
     
-    # CORS - Add your production domains here
-    CORS_ORIGINS: list = [
-        "http://localhost:5173",
-        "http://localhost:3000",
-        "http://127.0.0.1:5173",
-    ]
+    # CORS - Set CORS_ORIGINS env var as comma-separated list for production
+    CORS_ORIGINS_STR: str = "http://localhost:5173,http://localhost:3000"
+    
+    @property
+    def CORS_ORIGINS(self) -> List[str]:
+        return [origin.strip() for origin in self.CORS_ORIGINS_STR.split(",") if origin.strip()]
     
     class Config:
         env_file = ".env"

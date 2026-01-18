@@ -1,0 +1,31 @@
+# Render Blueprint for RAG Education System
+# Deploy with: https://render.com/docs/blueprint-spec
+
+services:
+  # Backend API
+  - type: web
+    name: rag-education-api
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      cd backend && pip install -r requirements.txt
+    startCommand: |
+      cd backend && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.12"
+      - key: DATABASE_URL
+        sync: false  # Set manually to Supabase URL
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: SECRET_KEY
+        generateValue: true
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: ENVIRONMENT
+        value: production
+      - key: DEBUG
+        value: "false"
+    healthCheckPath: /health
+    autoDeploy: true
