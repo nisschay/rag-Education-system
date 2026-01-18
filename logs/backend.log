@@ -874,3 +874,518 @@ INFO:     Waiting for application shutdown.
 2026-01-18 06:09:18 - rag_education.main - INFO - Shutting down RAG Education System API...
 INFO:     Application shutdown complete.
 INFO:     Finished server process [6573]
+2026-01-18 06:25:19 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [7884]
+INFO:     Waiting for application startup.
+2026-01-18 06:25:21 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:25:21 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:25:39 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7884]
+2026-01-18 06:26:05 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [8131]
+INFO:     Waiting for application startup.
+2026-01-18 06:26:07 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:26:07 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:58612 - "OPTIONS /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58622 - "OPTIONS /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58638 - "OPTIONS /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "OPTIONS /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "GET /api/courses/32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58656 - "OPTIONS /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58660 - "OPTIONS /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58656 - "GET /api/chat/sessions?course_id=32 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "OPTIONS /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "GET /api/chat/sessions/9/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58646 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58656 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:27:11 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8131]
+2026-01-18 06:29:25 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [8461]
+INFO:     Waiting for application startup.
+2026-01-18 06:29:27 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:29:27 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:31:37 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8461]
+2026-01-18 06:31:49 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [8749]
+INFO:     Waiting for application startup.
+2026-01-18 06:31:54 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:31:54 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:32:07 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8749]
+2026-01-18 06:32:30 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [8986]
+INFO:     Waiting for application startup.
+2026-01-18 06:32:34 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:32:35 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:36:17 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8986]
+2026-01-18 06:36:49 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [9275]
+INFO:     Waiting for application startup.
+2026-01-18 06:36:51 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:36:51 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:43:48 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9275]
+2026-01-18 06:44:04 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [9593]
+INFO:     Waiting for application startup.
+2026-01-18 06:44:05 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:44:05 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:44428 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44428 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44428 - "OPTIONS /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44428 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38760 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38760 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 06:48:06 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9593]
+2026-01-18 06:48:22 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [9848]
+INFO:     Waiting for application startup.
+2026-01-18 06:48:29 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 06:48:29 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:37292 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37294 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37292 - "OPTIONS /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37294 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37294 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37292 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42396 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42410 - "GET /api/courses/32/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40622 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2026-01-18 06:49:38 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+INFO:     127.0.0.1:40622 - "POST /api/auth/login HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/auth.py", line 49, in login
+    user.password_hash = _hash_password(request.password)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/auth.py", line 20, in _hash_password
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/context.py", line 2258, in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 779, in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 591, in _calc_checksum
+    self._stub_requires_backend()
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2254, in _stub_requires_backend
+    cls.set_backend()
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2156, in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2163, in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2188, in set_backend
+    cls._set_backend(name, dryrun)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2311, in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2224, in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 626, in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 421, in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 380, in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 655, in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+INFO:     127.0.0.1:48174 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2026-01-18 06:49:57 - passlib.handlers.bcrypt - WARNING - (trapped) error reading bcrypt version
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 620, in _load_backend_mixin
+    version = _bcrypt.__about__.__version__
+              ^^^^^^^^^^^^^^^^^
+AttributeError: module 'bcrypt' has no attribute '__about__'
+INFO:     127.0.0.1:48174 - "POST /api/auth/login HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/auth.py", line 49, in login
+    user.password_hash = _hash_password(request.password)
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/auth.py", line 20, in _hash_password
+    return pwd_context.hash(password)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/context.py", line 2258, in hash
+    return record.hash(secret, **kwds)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 779, in hash
+    self.checksum = self._calc_checksum(secret)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 591, in _calc_checksum
+    self._stub_requires_backend()
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2254, in _stub_requires_backend
+    cls.set_backend()
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2156, in set_backend
+    return owner.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2163, in set_backend
+    return cls.set_backend(name, dryrun=dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2188, in set_backend
+    cls._set_backend(name, dryrun)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2311, in _set_backend
+    super(SubclassBackendMixin, cls)._set_backend(name, dryrun)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 2224, in _set_backend
+    ok = loader(**kwds)
+         ^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 626, in _load_backend_mixin
+    return mixin_cls._finalize_backend_mixin(name, dryrun)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 421, in _finalize_backend_mixin
+    if detect_wrap_bug(IDENT_2A):
+       ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 380, in detect_wrap_bug
+    if verify(secret, bug_hash):
+       ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/utils/handlers.py", line 792, in verify
+    return consteq(self._calc_checksum(secret), chk)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/passlib/handlers/bcrypt.py", line 655, in _calc_checksum
+    hash = _bcrypt.hashpw(secret, config)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: password cannot be longer than 72 bytes, truncate manually if necessary (e.g. my_password[:72])
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 07:03:48 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9848]
+2026-01-18 07:04:00 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [10672]
+INFO:     Waiting for application startup.
+2026-01-18 07:04:02 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 07:04:02 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:43222 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 07:18:04 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10672]
+2026-01-18 07:18:12 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [11105]
+INFO:     Waiting for application startup.
+2026-01-18 07:18:13 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 07:18:13 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 09:01:48 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11105]
+2026-01-18 09:02:51 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [13951]
+INFO:     Waiting for application startup.
+2026-01-18 09:02:54 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 09:02:54 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57438 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57438 - "POST /api/auth/register HTTP/1.1" 400 Bad Request
+INFO:     127.0.0.1:51080 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51080 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51080 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45054 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45054 - "POST /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45054 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45054 - "OPTIONS /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45054 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36150 - "OPTIONS /api/courses/33/upload HTTP/1.1" 200 OK
+2026-01-18 09:04:32 - rag_education.courses - INFO - Uploaded file EM.pdf (2083053 bytes) for course 33
+2026-01-18 09:04:39 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:36150 - "POST /api/courses/33/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36150 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36188 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36150 - "OPTIONS /api/courses/33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36188 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60814 - "OPTIONS /api/chat/sessions?course_id=33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36150 - "GET /api/courses/33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36188 - "GET /api/chat/sessions?course_id=33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54978 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-18 09:05:34 - rag_education.rag_service - INFO - Retrieving context for query: what is this topic give me a brief of 150 words and then tell me how did it come about, tell me the ...
+2026-01-18 09:05:35 - rag_education.rag_service - INFO - Retrieved 3 chunks
+2026-01-18 09:05:35 - rag_education.rag_service - INFO - Generating response for: what is this topic give me a brief of 150 words and then tell me how did it come about, tell me the ...
+2026-01-18 09:05:35 - rag_education.rag_service - INFO - Using 3 context chunks
+2026-01-18 09:05:35 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-18 09:05:43 - rag_education.rag_service - INFO - Generated response (length: 1794)
+INFO:     127.0.0.1:54978 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54978 - "GET /api/chat/sessions?course_id=33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54978 - "OPTIONS /api/chat/sessions/10/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54978 - "GET /api/chat/sessions/10/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54628 - "GET /api/courses/33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54640 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54650 - "GET /api/chat/sessions?course_id=33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54640 - "GET /api/chat/sessions/10/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54628 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54650 - "GET /api/courses/33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35528 - "GET /api/courses/33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35520 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35540 - "GET /api/chat/sessions?course_id=33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35520 - "GET /api/chat/sessions/10/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37318 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37302 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37302 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37318 - "GET /api/courses/33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37302 - "GET /api/chat/sessions?course_id=33 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37302 - "GET /api/chat/sessions/10/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37302 - "GET /api/courses/33/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37318 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 09:17:52 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-18 09:18:10 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [14684]
+INFO:     Waiting for application startup.
+2026-01-18 09:18:15 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 09:18:15 - rag_education.main - INFO - Database initialized
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 09:51:54 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [14684]
+2026-01-18 09:52:05 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [20179]
+INFO:     Waiting for application startup.
+2026-01-18 09:52:09 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 09:52:09 - rag_education.main - INFO - Environment: development
+2026-01-18 09:52:10 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-18 09:52:29 - rag_education.auth - INFO - Auto-registered new user: test@test.com
+2026-01-18 09:52:29 - rag_education.auth - INFO - User logged in: test@test.com
+INFO:     127.0.0.1:42066 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-18 10:01:13 - rag_education.main - INFO - Shutting down RAG Education System API...
+2026-01-18 10:01:24 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [20782]
+INFO:     Waiting for application startup.
+2026-01-18 10:01:27 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-18 10:01:27 - rag_education.main - INFO - Environment: development
+2026-01-18 10:01:28 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:57954 - "OPTIONS /api/auth/google HTTP/1.1" 200 OK
+2026-01-18 10:02:05 - rag_education.auth - INFO - New Google user created: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:57954 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57954 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:57954 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44140 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43652 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43652 - "POST /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43652 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43652 - "OPTIONS /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43652 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "OPTIONS /api/courses/1/upload HTTP/1.1" 200 OK
+2026-01-18 10:04:03 - rag_education.courses - INFO - Uploaded file vibha ml unit hmm.pdf (5065078 bytes) for course 1
+2026-01-18 10:04:19 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:42648 - "POST /api/courses/1/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47872 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47884 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47872 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "OPTIONS /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "OPTIONS /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:47884 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42648 - "GET /api/courses/1 HTTP/1.1" 200 OK
+2026-01-18 10:04:45 - rag_education.courses - INFO - Uploaded file EM.pdf (2083053 bytes) for course 1
+2026-01-18 10:04:49 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+INFO:     127.0.0.1:39980 - "POST /api/courses/1/upload HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44878 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44888 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:44904 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39980 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50976 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-18 10:05:20 - rag_education.rag_service - INFO - Retrieving context for query: Teach me what both documents are about and how they are related ...
+2026-01-18 10:05:21 - rag_education.rag_service - INFO - Retrieved 9 chunks
+2026-01-18 10:05:21 - rag_education.rag_service - INFO - Generating response for: Teach me what both documents are about and how they are related ...
+2026-01-18 10:05:21 - rag_education.rag_service - INFO - Using 9 context chunks
+2026-01-18 10:05:21 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-18 10:05:33 - rag_education.rag_service - INFO - Generated response (length: 5244)
+INFO:     127.0.0.1:50976 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50976 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50976 - "OPTIONS /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50976 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50904 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50916 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50920 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50916 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60124 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60138 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:60130 - "GET /api/courses/ HTTP/1.1" 200 OK
+2026-01-18 10:08:48 - rag_education.auth - INFO - Google user logged in: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:56750 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56750 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56762 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35290 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35306 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51386 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51400 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+2026-01-18 10:11:15 - rag_education.auth - ERROR - Google auth failed: Token used too early, 1768731075 < 1768731076. Check that your computer's clock is set correctly.
+INFO:     127.0.0.1:48052 - "POST /api/auth/google HTTP/1.1" 401 Unauthorized
+2026-01-18 10:11:30 - rag_education.auth - ERROR - Google auth failed: Token used too early, 1768731090 < 1768731092. Check that your computer's clock is set correctly.
+INFO:     127.0.0.1:44130 - "POST /api/auth/google HTTP/1.1" 401 Unauthorized

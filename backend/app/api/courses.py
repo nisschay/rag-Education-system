@@ -1,4 +1,4 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File
+from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.schemas import Course, Unit, User, UploadedFile, ChatSession, Message
@@ -111,7 +111,8 @@ async def create_unit(
 async def upload_documents(
     course_id: int,
     files: list[UploadFile] = File(...),
-    unit_id: int = None,
+    unit_id: Optional[int] = Form(None),
+    topic_name: Optional[str] = Form(None),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
@@ -157,8 +158,27 @@ async def upload_documents(
         # Extract text
         text = await document_processor.extract_text_from_pdf(file_path)
         
-        # Get or create default unit
+        # Pick target unit: optional topic name, explicit unit, or default
         target_unit_id = unit_id
+
+        if topic_name:
+            existing_unit = db.query(Unit).filter(
+                Unit.course_id == course_id,
+                Unit.name == topic_name
+            ).first()
+            if not existing_unit:
+                next_order = db.query(Unit).filter(Unit.course_id == course_id).count()
+                existing_unit = Unit(
+                    course_id=course_id,
+                    name=topic_name,
+                    order=next_order,
+                    level=1
+                )
+                db.add(existing_unit)
+                db.commit()
+                db.refresh(existing_unit)
+            target_unit_id = existing_unit.id
+
         if not target_unit_id:
             default_unit = db.query(Unit).filter(
                 Unit.course_id == course_id,

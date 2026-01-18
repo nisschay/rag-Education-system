@@ -79,13 +79,21 @@ class RAGService:
         else:
             length_instruction = "Match the depth and length of your response to the complexity of the question."
         
-        system_instruction = f"""You are an expert AI tutor helping students learn about: {course_name}.
+        # Check if we have relevant context (low distance = good match)
+        has_relevant_context = False
+        if retrieved_chunks:
+            # Distance < 1.0 typically means good semantic match in ChromaDB
+            min_distance = min(chunk.get('distance', 999) for chunk in retrieved_chunks)
+            has_relevant_context = min_distance < 1.5 and len(retrieved_chunks) > 0
+        
+        if has_relevant_context:
+            system_instruction = f"""You are an expert AI tutor helping students learn about: {course_name}.
 
 Your responsibilities:
 1. Answer the student's specific question directly
 2. Use the provided context from their study materials
 3. Use markdown formatting for better readability (headers, bullet points, bold text, etc.)
-4. If the context doesn't contain enough information, be honest about it
+4. If the context doesn't fully cover the question, supplement with your general knowledge but mention this
 
 Response guidelines:
 - {length_instruction}
@@ -95,9 +103,29 @@ Response guidelines:
 - For requests for "everything" or "all", be comprehensive with structured formatting
 - Use bullet points and headers to organize longer responses
 - Always format code examples in code blocks"""
+        else:
+            # No relevant context found - use LLM's general knowledge
+            logger.info("No relevant context found in documents, falling back to LLM knowledge")
+            system_instruction = f"""You are an expert AI tutor helping students learn about: {course_name}.
+
+IMPORTANT: The student's study materials don't contain information about this specific topic.
+Use your general knowledge to provide a helpful answer.
+
+Your responsibilities:
+1. Answer the student's question using your general knowledge
+2. Be clear that this information comes from general knowledge, not their uploaded materials
+3. Use markdown formatting for better readability
+4. Suggest they upload relevant materials if they want topic-specific answers
+
+Response guidelines:
+- {length_instruction}
+- Start with a brief note like "📚 This topic isn't in your uploaded materials, but here's what I know:"
+- Provide accurate, educational content
+- Use bullet points and headers to organize responses"""
 
         # Build prompt with clear separation
-        prompt = f"""Context from study materials:
+        if has_relevant_context:
+            prompt = f"""Context from study materials:
 
 {context_text}
 
@@ -105,7 +133,12 @@ Response guidelines:
 
 Student's question: "{query}"
 
-Provide a helpful answer. Remember to match the response length to the question complexity - short answers for simple questions, detailed answers for complex ones."""
+Provide a helpful answer using the context above. Remember to match the response length to the question complexity."""
+        else:
+            prompt = f"""Student's question: "{query}"
+
+The student is learning about {course_name} but this specific question isn't covered in their uploaded materials.
+Provide a helpful answer using your general knowledge. Remember to match the response length to the question complexity."""
 
         # Generate response
         logger.debug(f"Sending prompt to Gemini (length: {len(prompt)})")

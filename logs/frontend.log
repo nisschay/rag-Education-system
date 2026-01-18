@@ -101,3 +101,148 @@
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 860 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1091 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 599 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1094 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1147 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+6:36:00 AM [vite] (client) hmr update /src/App.jsx, /src/index.css
+6:36:04 AM [vite] (client) hmr invalidate /src/App.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:36:04 AM [vite] (client) page reload src/App.jsx
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 2784 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 917 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+6:47:18 AM [vite] (client) hmr update /src/App.jsx, /src/index.css
+6:47:20 AM [vite] (client) hmr invalidate /src/App.jsx Could not Fast Refresh ("useAuth" export is incompatible). Learn more at https://github.com/vitejs/vite-plugin-react/tree/main/packages/plugin-react#consistent-components-exports
+6:47:20 AM [vite] (client) page reload src/App.jsx
+6:47:53 AM [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 4457 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+7:00:14 AM [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1638 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+7:17:41 AM [vite] .env changed, restarting server...
+7:17:41 AM [vite] server restarted.
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 961 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+8:58:38 AM [vite] (client) hmr update /src/pages/Dashboard.jsx, /src/pages/ChatInterface.jsx, /src/pages/Login.jsx, /src/index.css
+8:58:38 AM [vite] (client) hmr update /src/pages/Login.jsx, /src/index.css
+8:58:38 AM [vite] (client) hmr update /src/pages/Dashboard.jsx, /src/index.css
+8:58:38 AM [vite] .env changed, restarting server...
+8:58:39 AM [vite] server restarted.
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 5536 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+9:17:24 AM [vite] .env changed, restarting server...
+9:17:25 AM [vite] server restarted.
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 4334 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1160 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+9:54:48 AM [vite] .env changed, restarting server...
+9:54:49 AM [vite] server restarted.
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 1108 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

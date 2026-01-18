@@ -1,33 +1,60 @@
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
 from app.api import auth, courses, chat
 from app.database import init_db
+from app.core.config import settings
 from app.utils.logging_config import get_logger
+from slowapi import Limiter, _rate_limit_exceeded_handler
+from slowapi.util import get_remote_address
+from slowapi.errors import RateLimitExceeded
 import uvicorn
 
 logger = get_logger("main")
 
+# Rate limiter
+limiter = Limiter(key_func=get_remote_address)
+
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # Startup
-    logger.info("Starting RAG Education System API...")
+    logger.info(f"Starting {settings.PROJECT_NAME} API...")
+    logger.info(f"Environment: {settings.ENVIRONMENT}")
     init_db()
-    logger.info("Database initialized")
+    logger.info("Database initialized (PostgreSQL)")
     yield
     # Shutdown
-    logger.info("Shutting down RAG Education System API...")
+    logger.info(f"Shutting down {settings.PROJECT_NAME} API...")
 
-app = FastAPI(title="RAG Education System", lifespan=lifespan)
+app = FastAPI(
+    title=settings.PROJECT_NAME, 
+    lifespan=lifespan,
+    docs_url="/docs" if settings.DEBUG else None,
+    redoc_url="/redoc" if settings.DEBUG else None,
+)
 
-# CORS
+# Add rate limiter
+app.state.limiter = limiter
+app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
+
+# CORS - configurable origins
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173", "http://localhost:3000"],  # Vite default
+    allow_origins=settings.CORS_ORIGINS,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Global exception handler
+@app.exception_handler(Exception)
+async def global_exception_handler(request: Request, exc: Exception):
+    logger.error(f"Unhandled exception: {exc}")
+    return JSONResponse(
+        status_code=500,
+        content={"detail": "Internal server error"}
+    )
 
 # Include routers
 app.include_router(auth.router)
@@ -36,8 +63,11 @@ app.include_router(chat.router)
 
 @app.get("/")
 def read_root():
-    logger.info("Health check requested")
-    return {"message": "RAG Education System API"}
+    return {"message": f"{settings.PROJECT_NAME} API", "status": "healthy"}
+
+@app.get("/health")
+def health_check():
+    return {"status": "healthy", "environment": settings.ENVIRONMENT}
 
 if __name__ == "__main__":
-    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=True)
+    uvicorn.run("app.main:app", host="0.0.0.0", port=8000, reload=settings.DEBUG)

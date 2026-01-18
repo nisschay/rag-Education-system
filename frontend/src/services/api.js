@@ -34,7 +34,9 @@ api.interceptors.response.use(
 );
 
 export const authAPI = {
-  login: (email, name) => api.post('/api/auth/login', { email, name }),
+  login: (email, password, name) => api.post('/api/auth/login', { email, password, name }),
+  register: (email, password, name) => api.post('/api/auth/register', { email, password, name }),
+  googleAuth: (credential) => api.post('/api/auth/google', { credential }),
 };
 
 export const coursesAPI = {
@@ -42,12 +44,13 @@ export const coursesAPI = {
   getCourse: (courseId) => api.get(`/api/courses/${courseId}`),
   createCourse: (data) => api.post('/api/courses/', data),
   deleteCourse: (courseId) => api.delete(`/api/courses/${courseId}`),
-  uploadDocuments: (courseId, files, unitId) => {
+  uploadDocuments: (courseId, files, unitId, topicName) => {
     const formData = new FormData();
     // Support both single file and multiple files
     const fileList = Array.isArray(files) ? files : [files];
     fileList.forEach(file => formData.append('files', file));
     if (unitId) formData.append('unit_id', unitId);
+    if (topicName) formData.append('topic_name', topicName);
     return api.post(`/api/courses/${courseId}/upload`, formData);
   },
   getCourseStructure: (courseId) => api.get(`/api/courses/${courseId}/structure`),

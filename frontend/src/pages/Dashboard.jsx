@@ -198,6 +198,10 @@ function CourseCard({ course, navigate }) {
   const [isDocsOpen, setIsDocsOpen] = useState(false);
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
+  const [fileError, setFileError] = useState('');
+  const [topicName, setTopicName] = useState('');
+  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+  const MAX_FILES = 10;
   const queryClient = useQueryClient();
 
   const { data: documents } = useQuery({
@@ -209,11 +213,13 @@ function CourseCard({ course, navigate }) {
   });
 
   const uploadMutation = useMutation({
-    mutationFn: () => coursesAPI.uploadDocuments(course.id, files),
+    mutationFn: () => coursesAPI.uploadDocuments(course.id, files, null, topicName || null),
     onSuccess: () => {
       queryClient.invalidateQueries(['documents', course.id]);
       setIsUploadOpen(false);
       setFiles([]);
+      setTopicName('');
+      setFileError('');
     },
   });
 
@@ -225,7 +231,7 @@ function CourseCard({ course, navigate }) {
   });
 
   const handleUpload = async () => {
-    if (files.length === 0) return;
+    if (files.length === 0 || fileError) return;
     setUploading(true);
     try {
       await uploadMutation.mutateAsync();
@@ -236,7 +242,28 @@ function CourseCard({ course, navigate }) {
 
   const handleFileChange = (e) => {
     const selectedFiles = Array.from(e.target.files);
-    setFiles(selectedFiles);
+    if (selectedFiles.length === 0) {
+      setFiles([]);
+      setFileError('');
+      return;
+    }
+
+    let error = '';
+    let trimmedFiles = selectedFiles;
+
+    if (selectedFiles.length > MAX_FILES) {
+      error = `You can upload up to ${MAX_FILES} files at a time. Extra files were ignored.`;
+      trimmedFiles = selectedFiles.slice(0, MAX_FILES);
+    }
+
+    const oversized = trimmedFiles.filter((f) => f.size > MAX_FILE_SIZE);
+    if (oversized.length > 0) {
+      error = `Files must be 10 MB or smaller. Skipped: ${oversized.map((f) => f.name).join(', ')}`;
+      trimmedFiles = trimmedFiles.filter((f) => f.size <= MAX_FILE_SIZE);
+    }
+
+    setFiles(trimmedFiles);
+    setFileError(error);
   };
 
   const formatFileSize = (bytes) => {
@@ -292,16 +319,32 @@ function CourseCard({ course, navigate }) {
             <DialogHeader>
               <DialogTitle>Upload Documents</DialogTitle>
               <DialogDescription>
-                Upload PDF files to add to this course (max 10 files, 10MB each).
+                Upload PDF files to add to this course (max 10 files, 10MB each). You can optionally tag uploads under a topic.
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
+              <div className="space-y-2 mb-4">
+                <label className="text-sm font-medium">Topic (optional)</label>
+                <Input
+                  placeholder="e.g., Linear Algebra"
+                  value={topicName}
+                  onChange={(e) => setTopicName(e.target.value)}
+                />
+                <p className="text-xs text-muted-foreground">Use topics to group related documents. Leave blank to keep using the course’s main folder.</p>
+              </div>
+
               <Input
                 type="file"
                 accept=".pdf"
                 multiple
                 onChange={handleFileChange}
               />
+              <p className="text-xs text-muted-foreground mt-2">Up to {MAX_FILES} files per upload, 10 MB each. Larger files will be skipped.</p>
+              {fileError && (
+                <div className="mt-2 text-sm text-destructive bg-destructive/10 p-2 rounded-md">
+                  {fileError}
+                </div>
+              )}
               {files.length > 0 && (
                 <div className="mt-3 space-y-1">
                   <p className="text-sm font-medium">Selected files:</p>
@@ -314,10 +357,18 @@ function CourseCard({ course, navigate }) {
               )}
             </div>
             <DialogFooter>
-              <Button variant="outline" onClick={() => { setIsUploadOpen(false); setFiles([]); }}>
+              <Button
+                variant="outline"
+                onClick={() => {
+                  setIsUploadOpen(false);
+                  setFiles([]);
+                  setTopicName('');
+                  setFileError('');
+                }}
+              >
                 Cancel
               </Button>
-              <Button onClick={handleUpload} disabled={files.length === 0 || uploading}>
+              <Button onClick={handleUpload} disabled={files.length === 0 || uploading || !!fileError}>
                 {uploading ? 'Uploading...' : `Upload ${files.length} file${files.length !== 1 ? 's' : ''}`}
               </Button>
             </DialogFooter>
