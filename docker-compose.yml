@@ -21,7 +21,7 @@ services:
   backend:
     build: ./backend
     ports:
-      - "8000:8000"           # Map host port 8000 to container port 8000
+      - "8000:8000"
     environment:
       - GEMINI_API_KEY=${GEMINI_API_KEY}
       - DATABASE_URL=sqlite:///./storage/education.db
@@ -32,7 +32,6 @@ services:
       - CHROMA_DIR=./storage/chroma_db
       - ENVIRONMENT=production
     volumes:
-      # Persist data outside the container
       - backend_storage:/app/storage
       - backend_uploads:/app/uploads
     restart: unless-stopped
@@ -41,23 +40,14 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-    # Add this near the top, before pip install
-    RUN apt-get update && apt-get install -y \
-        build-essential \
-        g++ \
-        gcc \
-        && rm -rf /var/lib/apt/lists/*
-
-    # Then your existing pip install command
-    RUN pip install --no-cache-dir -r requirements.txt
 
   # Frontend: React app served by Nginx
   frontend:
     build: ./frontend
     ports:
-      - "80:80"               # Map host port 80 to container port 80
+      - "80:80"
     depends_on:
-      - backend               # Wait for backend to be ready
+      - backend
     restart: unless-stopped
     healthcheck:
       test: ["CMD", "wget", "--quiet", "--tries=1", "--spider", "http://localhost/"]
@@ -65,7 +55,6 @@ services:
       timeout: 10s
       retries: 3
 
-# Named volumes for data persistence
 volumes:
   backend_storage:
   backend_uploads:

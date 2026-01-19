@@ -21,21 +21,23 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Install system dependencies (for psycopg2, etc.)
-RUN apt-get update && apt-get install -y --no-install-recommends \
+# Install system dependencies INCLUDING build tools
+RUN apt-get update && apt-get install -y \
+    build-essential \
+    g++ \
     gcc \
-    libpq-dev \
+    curl \
     && rm -rf /var/lib/apt/lists/*
 
-# Copy and install Python dependencies first (for caching)
+# Copy and install Python dependencies
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application code
 COPY . .
 
-# Create directories for storage
-RUN mkdir -p uploads storage/chroma_db
+# Create necessary directories
+RUN mkdir -p storage uploads storage/chroma_db
 
 # Expose the port FastAPI runs on
 EXPOSE 8000
