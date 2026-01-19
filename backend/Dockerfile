@@ -13,7 +13,7 @@
 # Build: docker build -t rag-backend ./backend
 # Run:   docker run -p 8000:8000 --env-file .env rag-backend
 
-FROM python:3.12-slim
+FROM python:3.12
 
 # Set environment variables
 ENV PYTHONDONTWRITEBYTECODE=1
@@ -21,11 +21,8 @@ ENV PYTHONUNBUFFERED=1
 
 WORKDIR /app
 
-# Install system dependencies INCLUDING build tools
+# Install system dependencies
 RUN apt-get update && apt-get install -y \
-    build-essential \
-    g++ \
-    gcc \
     curl \
     && rm -rf /var/lib/apt/lists/*
 
