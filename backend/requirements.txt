@@ -9,8 +9,9 @@ psycopg2-binary==2.9.9
 
 # AI/ML
 google-genai==1.0.0
-chromadb==0.4.24
+chromadb==0.5.23
 sentence-transformers==2.3.1
+numpy<2.0
 
 # Document Processing
 PyPDF2==3.0.1
