@@ -10,6 +10,7 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import uvicorn
+import os
 
 logger = get_logger("main")
 
@@ -38,10 +39,26 @@ app = FastAPI(
 app.state.limiter = limiter
 app.add_exception_handler(RateLimitExceeded, _rate_limit_exceeded_handler)
 
-# CORS - configurable origins
+# CORS Configuration - Allow all origins in production for now
+origins = [
+    "https://rag-education-system.vercel.app",
+    "https://rag-education-system-1.onrender.com",
+    "http://localhost:5173",
+    "http://localhost:3000",
+    "http://localhost:8000",
+]
+
+# Also check environment variable
+cors_origins_env = os.environ.get("CORS_ORIGINS_STR", "")
+if cors_origins_env:
+    origins.extend([o.strip() for o in cors_origins_env.split(",") if o.strip()])
+
+# Remove duplicates
+origins = list(set(origins))
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=settings.CORS_ORIGINS,
+    allow_origins=origins,
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
