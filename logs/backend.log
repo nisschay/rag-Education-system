@@ -1420,3 +1420,642 @@ INFO:     127.0.0.1:44092 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Reques
 INFO:     127.0.0.1:44092 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
 INFO:     127.0.0.1:44106 - "OPTIONS /api/auth/register HTTP/1.1" 400 Bad Request
 INFO:     127.0.0.1:54352 - "OPTIONS /api/auth/google HTTP/1.1" 400 Bad Request
+2026-01-28 07:05:51 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [3359]
+INFO:     Waiting for application startup.
+2026-01-28 07:05:52 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:05:52 - rag_education.main - INFO - Environment: development
+2026-01-28 07:05:52 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:41682 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+2026-01-28 07:05:57 - rag_education.main - ERROR - Unhandled exception: 'dict' object has no attribute 'id'
+INFO:     127.0.0.1:41682 - "GET /api/courses/ HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/courses.py", line 61, in get_courses
+    courses = db.query(Course).filter(Course.user_id == current_user.id).all()
+                                                        ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'id'
+2026-01-28 07:05:58 - rag_education.main - ERROR - Unhandled exception: 'dict' object has no attribute 'id'
+INFO:     127.0.0.1:41694 - "GET /api/courses/ HTTP/1.1" 500 Internal Server Error
+ERROR:    Exception in ASGI application
+Traceback (most recent call last):
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/protocols/http/httptools_impl.py", line 416, in run_asgi
+    result = await app(  # type: ignore[func-returns-value]
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/uvicorn/middleware/proxy_headers.py", line 60, in __call__
+    return await self.app(scope, receive, send)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/applications.py", line 1135, in __call__
+    await super().__call__(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/applications.py", line 107, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 186, in __call__
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/errors.py", line 164, in __call__
+    await self.app(scope, receive, _send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 93, in __call__
+    await self.simple_response(scope, receive, send, request_headers=headers)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/cors.py", line 144, in simple_response
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/middleware/exceptions.py", line 63, in __call__
+    await wrap_app_handling_exceptions(self.app, conn)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/middleware/asyncexitstack.py", line 18, in __call__
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 716, in __call__
+    await self.middleware_stack(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 736, in app
+    await route.handle(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/routing.py", line 290, in handle
+    await self.app(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 115, in app
+    await wrap_app_handling_exceptions(app, request)(scope, receive, send)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 53, in wrapped_app
+    raise exc
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/starlette/_exception_handler.py", line 42, in wrapped_app
+    await app(scope, receive, sender)
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 101, in app
+    response = await f(request)
+               ^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 355, in app
+    raw_response = await run_endpoint_function(
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/venv/lib/python3.12/site-packages/fastapi/routing.py", line 243, in run_endpoint_function
+    return await dependant.call(**values)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/root/rag/rag-education-system/backend/app/api/courses.py", line 61, in get_courses
+    courses = db.query(Course).filter(Course.user_id == current_user.id).all()
+                                                        ^^^^^^^^^^^^^^^
+AttributeError: 'dict' object has no attribute 'id'
+INFO:     127.0.0.1:51024 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51024 - "POST /api/auth/register HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:37166 - "POST /api/auth/register HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:16:06 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [3359]
+2026-01-28 07:16:14 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [5134]
+INFO:     Waiting for application startup.
+2026-01-28 07:16:15 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:16:15 - rag_education.main - INFO - Environment: development
+2026-01-28 07:16:15 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-28 07:16:37 - rag_education.auth - INFO - Registration attempt for email: test@example.com
+2026-01-28 07:16:37 - rag_education.auth - INFO - New user registered: test@example.com
+INFO:     127.0.0.1:48798 - "POST /api/auth/register HTTP/1.1" 200 OK
+2026-01-28 07:16:47 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:16:48 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:44846 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:17:36 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5134]
+2026-01-28 07:17:44 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [5512]
+INFO:     Waiting for application startup.
+2026-01-28 07:17:46 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:17:46 - rag_education.main - INFO - Environment: development
+2026-01-28 07:17:46 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:50930 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2026-01-28 07:18:26 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:18:26 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:50930 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50930 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50930 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50930 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50930 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33722 - "OPTIONS /api/auth/register HTTP/1.1" 200 OK
+2026-01-28 07:18:52 - rag_education.auth - INFO - Registration attempt for email: alice.johnson@univ.edu
+2026-01-28 07:18:52 - rag_education.auth - INFO - New user registered: alice.johnson@univ.edu
+INFO:     127.0.0.1:33722 - "POST /api/auth/register HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33722 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33722 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33746 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:33746 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50974 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50974 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50974 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50974 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:50978 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52896 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52896 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:52896 - "POST /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:36372 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:36734 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:36734 - "GET /api/courses/ HTTP/1.1" 404 Not Found
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:23:55 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [5512]
+2026-01-28 07:24:03 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [6431]
+INFO:     Waiting for application startup.
+2026-01-28 07:24:04 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:24:04 - rag_education.main - INFO - Environment: development
+2026-01-28 07:24:04 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-28 07:24:24 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:24:24 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:40466 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40474 - "POST /api/courses/ HTTP/1.1" 401 Unauthorized
+2026-01-28 07:24:31 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:24:31 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:43830 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43846 - "POST /api/courses/ HTTP/1.1" 401 Unauthorized
+2026-01-28 07:24:37 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:24:38 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:43854 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43864 - "POST /api/courses/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:58548 - "POST /api/courses/ HTTP/1.1" 401 Unauthorized
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:26:39 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [6431]
+2026-01-28 07:26:57 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [7338]
+INFO:     Waiting for application startup.
+2026-01-28 07:27:03 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:27:03 - rag_education.main - INFO - Environment: development
+2026-01-28 07:27:03 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-28 07:27:24 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:27:25 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:58442 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:58446 - "POST /api/courses/ HTTP/1.1" 401 Unauthorized
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:28:21 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [7338]
+2026-01-28 07:28:31 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [8037]
+INFO:     Waiting for application startup.
+2026-01-28 07:28:34 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:28:34 - rag_education.main - INFO - Environment: development
+2026-01-28 07:28:35 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-28 07:28:52 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:28:52 - rag_education.auth - INFO - New user registered: test@example.com
+INFO:     127.0.0.1:49244 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:49258 - "POST /api/courses/ HTTP/1.1" 200 OK
+2026-01-28 07:29:03 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:29:04 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:37972 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37984 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37056 - "GET /api/courses/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37072 - "POST /api/chat/session HTTP/1.1" 200 OK
+2026-01-28 07:29:04 - rag_education.rag_service - INFO - Retrieving context for query: Hello...
+Error generating embedding: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:37084 - "POST /api/chat/message HTTP/1.1" 200 OK
+2026-01-28 07:29:12 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:29:12 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:37100 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37116 - "GET /api/courses/ HTTP/1.1" 200 OK
+2026-01-28 07:29:19 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:29:19 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:33906 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:33918 - "POST /api/chat/session HTTP/1.1" 200 OK
+2026-01-28 07:29:19 - rag_education.rag_service - INFO - Retrieving context for query: What is machine learning?...
+Error generating embedding: 404 NOT_FOUND. {'error': {'code': 404, 'message': 'models/text-embedding-004 is not found for API version v1beta, or is not supported for embedContent. Call ListModels to see the list of available models and their supported methods.', 'status': 'NOT_FOUND'}}
+INFO:     127.0.0.1:33920 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:30:29 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [8037]
+2026-01-28 07:30:39 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [9439]
+INFO:     Waiting for application startup.
+2026-01-28 07:30:42 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:30:42 - rag_education.main - INFO - Environment: development
+2026-01-28 07:30:42 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-28 07:30:55 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:30:56 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:50528 - "POST /api/auth/login HTTP/1.1" 200 OK
+2026-01-28 07:30:56 - rag_education.rag_service - INFO - Retrieving context for query: What is machine learning?...
+INFO:     127.0.0.1:50544 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:31:28 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9439]
+2026-01-28 07:31:35 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [10055]
+INFO:     Waiting for application startup.
+2026-01-28 07:31:37 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:31:37 - rag_education.main - INFO - Environment: development
+2026-01-28 07:31:37 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-28 07:31:58 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:31:58 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:44778 - "POST /api/auth/login HTTP/1.1" 200 OK
+2026-01-28 07:31:59 - rag_education.rag_service - INFO - Retrieving context for query: What is machine learning?...
+2026-01-28 07:32:00 - rag_education.rag_service - INFO - Retrieved 0 chunks
+2026-01-28 07:32:00 - rag_education.rag_service - INFO - Generating response for: What is machine learning?...
+2026-01-28 07:32:00 - rag_education.rag_service - INFO - Using 0 context chunks
+2026-01-28 07:32:00 - rag_education.rag_service - INFO - No relevant context found in documents, falling back to LLM knowledge
+2026-01-28 07:32:00 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-28 07:32:03 - rag_education.rag_service - INFO - Generated response (length: 982)
+INFO:     127.0.0.1:44794 - "POST /api/chat/message HTTP/1.1" 200 OK
+2026-01-28 07:32:17 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:32:18 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:35680 - "POST /api/auth/login HTTP/1.1" 200 OK
+2026-01-28 07:32:18 - rag_education.auth - INFO - Registration attempt for email: newuser@test.com
+2026-01-28 07:32:18 - rag_education.auth - INFO - New user registered: newuser@test.com
+INFO:     127.0.0.1:35696 - "POST /api/auth/register HTTP/1.1" 200 OK
+2026-01-28 07:32:18 - rag_education.auth - INFO - Login attempt for email: newuser@test.com
+2026-01-28 07:32:18 - rag_education.auth - INFO - Password login successful for: newuser@test.com
+INFO:     127.0.0.1:35704 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35718 - "POST /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35722 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35728 - "POST /api/chat/session HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35730 - "GET /api/chat/sessions?course_id=2 HTTP/1.1" 200 OK
+2026-01-28 07:32:29 - rag_education.auth - INFO - Registration attempt for email: newuser2@test.com
+2026-01-28 07:32:29 - rag_education.auth - INFO - New user registered: newuser2@test.com
+INFO:     127.0.0.1:55086 - "POST /api/auth/register HTTP/1.1" 200 OK
+2026-01-28 07:32:35 - rag_education.auth - INFO - Login attempt for email: newuser2@test.com
+2026-01-28 07:32:35 - rag_education.auth - INFO - Password login successful for: newuser2@test.com
+INFO:     127.0.0.1:55126 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-28 07:36:01 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10055]
+2026-01-28 07:36:14 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [10986]
+INFO:     Waiting for application startup.
+2026-01-28 07:36:18 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-28 07:36:18 - rag_education.main - INFO - Environment: development
+2026-01-28 07:36:20 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:54326 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:54326 - "GET /api/courses/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:54326 - "GET /api/courses/ HTTP/1.1" 401 Unauthorized
+INFO:     127.0.0.1:55436 - "OPTIONS /api/auth/login HTTP/1.1" 200 OK
+2026-01-28 07:37:34 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-28 07:37:34 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:55436 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55436 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55436 - "OPTIONS /api/courses/2/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55444 - "OPTIONS /api/courses/3/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55436 - "GET /api/courses/3/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55444 - "GET /api/courses/2/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "OPTIONS /api/courses/3 HTTP/1.1" 200 OK
+2026-01-28 07:37:42 - rag_education.courses - INFO - Deleting course 3: Physics 101
+2026-01-28 07:37:43 - rag_education.courses - INFO - Successfully deleted course 3
+INFO:     127.0.0.1:55460 - "DELETE /api/courses/3 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "GET /api/courses/2/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "GET /api/courses/3/documents HTTP/1.1" 404 Not Found
+INFO:     127.0.0.1:55460 - "OPTIONS /api/courses/2 HTTP/1.1" 200 OK
+2026-01-28 07:37:46 - rag_education.courses - INFO - Deleting course 2: ML Course
+2026-01-28 07:37:46 - rag_education.courses - INFO - Successfully deleted course 2
+INFO:     127.0.0.1:55460 - "DELETE /api/courses/2 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:55460 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:37036 - "GET /api/courses/2/documents HTTP/1.1" 404 Not Found
+2026-01-29 05:05:46 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [9043]
+INFO:     Waiting for application startup.
+2026-01-29 05:05:49 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-29 05:05:49 - rag_education.main - INFO - Environment: development
+2026-01-29 05:05:50 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:36238 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36238 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36256 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32902 - "OPTIONS /api/auth/google HTTP/1.1" 200 OK
+2026-01-29 05:06:24 - rag_education.auth - INFO - Google auth attempt
+2026-01-29 05:06:24 - rag_education.auth - INFO - Google auth for email: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:32902 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32902 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32902 - "OPTIONS /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:32902 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34894 - "OPTIONS /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34914 - "OPTIONS /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34904 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34894 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34914 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34894 - "OPTIONS /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34894 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-29 05:07:10 - rag_education.rag_service - INFO - Retrieving context for query: teach me why we use markove models in general ...
+2026-01-29 05:07:10 - rag_education.rag_service - INFO - Retrieved 0 chunks
+2026-01-29 05:07:10 - rag_education.rag_service - INFO - Generating response for: teach me why we use markove models in general ...
+2026-01-29 05:07:10 - rag_education.rag_service - INFO - Using 0 context chunks
+2026-01-29 05:07:10 - rag_education.rag_service - INFO - No relevant context found in documents, falling back to LLM knowledge
+2026-01-29 05:07:10 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:07:14 - rag_education.rag_service - INFO - Generated response (length: 1456)
+INFO:     127.0.0.1:34926 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:34926 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39834 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39840 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39852 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39840 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+2026-01-29 05:07:38 - rag_education.rag_service - INFO - Retrieving context for query: what is em ...
+2026-01-29 05:07:39 - rag_education.rag_service - INFO - Retrieved 0 chunks
+2026-01-29 05:07:39 - rag_education.rag_service - INFO - Generating response for: what is em ...
+2026-01-29 05:07:39 - rag_education.rag_service - INFO - Using 0 context chunks
+2026-01-29 05:07:39 - rag_education.rag_service - INFO - No relevant context found in documents, falling back to LLM knowledge
+2026-01-29 05:07:39 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:07:42 - rag_education.rag_service - INFO - Generated response (length: 1194)
+INFO:     127.0.0.1:39860 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:56768 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39860 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+2026-01-29 05:07:58 - rag_education.rag_service - INFO - Retrieving context for query: what is EM ...
+2026-01-29 05:07:59 - rag_education.rag_service - INFO - Retrieved 0 chunks
+2026-01-29 05:07:59 - rag_education.rag_service - INFO - Generating response for: what is EM ...
+2026-01-29 05:07:59 - rag_education.rag_service - INFO - Using 0 context chunks
+2026-01-29 05:07:59 - rag_education.rag_service - INFO - No relevant context found in documents, falling back to LLM knowledge
+2026-01-29 05:07:59 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:08:03 - rag_education.rag_service - INFO - Generated response (length: 1192)
+INFO:     127.0.0.1:50372 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50372 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50372 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51976 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51986 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51990 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:51986 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35418 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35422 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35438 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35438 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53344 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53354 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53370 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53370 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36834 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36846 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36850 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36834 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+2026-01-29 05:13:39 - rag_education.rag_service - INFO - Retrieving context for query: hi...
+2026-01-29 05:13:39 - rag_education.rag_service - INFO - Retrieved 0 chunks
+2026-01-29 05:13:39 - rag_education.rag_service - INFO - Generating response for: hi...
+2026-01-29 05:13:39 - rag_education.rag_service - INFO - Using 0 context chunks
+2026-01-29 05:13:39 - rag_education.rag_service - INFO - No relevant context found in documents, falling back to LLM knowledge
+2026-01-29 05:13:39 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:13:42 - rag_education.rag_service - INFO - Generated response (length: 274)
+INFO:     127.0.0.1:36868 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36868 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36868 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36878 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36878 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36878 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36878 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-29 05:14:00 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [9043]
+2026-01-29 05:41:49 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [10482]
+INFO:     Waiting for application startup.
+2026-01-29 05:41:50 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-29 05:41:50 - rag_education.main - INFO - Environment: development
+2026-01-29 05:41:51 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-29 05:42:00 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-29 05:42:01 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:40688 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:40700 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+2026-01-29 05:42:18 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-29 05:42:19 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:59360 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:59362 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+2026-01-29 05:42:28 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-29 05:42:29 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:42060 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42074 - "GET /api/courses/ HTTP/1.1" 200 OK
+2026-01-29 05:42:36 - rag_education.auth - INFO - Login attempt for email: test@example.com
+2026-01-29 05:42:36 - rag_education.auth - INFO - Password login successful for: test@example.com
+INFO:     127.0.0.1:38894 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38908 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-29 05:44:00 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [10482]
+2026-01-29 05:44:06 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [11221]
+INFO:     Waiting for application startup.
+2026-01-29 05:44:08 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-29 05:44:08 - rag_education.main - INFO - Environment: development
+2026-01-29 05:44:08 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-29 05:44:30 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:44:31 - rag_education.auth - INFO - Password set for existing user: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:41666 - "POST /api/auth/login HTTP/1.1" 200 OK
+2026-01-29 05:44:39 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:44:39 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:36922 - "POST /api/auth/login HTTP/1.1" 200 OK
+2026-01-29 05:44:45 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:44:57 - rag_education.courses - INFO - Reindexed vibha ml unit hmm.pdf: 3 chunks
+2026-01-29 05:44:59 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:45:11 - rag_education.courses - INFO - Reindexed EM.pdf: 3 chunks
+INFO:     127.0.0.1:36938 - "POST /api/courses/1/reindex HTTP/1.1" 200 OK
+2026-01-29 05:45:35 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:45:35 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:40358 - "POST /api/auth/login HTTP/1.1" 200 OK
+2026-01-29 05:45:35 - rag_education.rag_service - INFO - Retrieving context for query: What is EM?...
+2026-01-29 05:45:36 - rag_education.rag_service - INFO - Retrieved 6 chunks
+2026-01-29 05:45:36 - rag_education.rag_service - INFO - Generating response for: What is EM?...
+2026-01-29 05:45:36 - rag_education.rag_service - INFO - Using 6 context chunks
+2026-01-29 05:45:36 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:45:38 - rag_education.rag_service - INFO - Generated response (length: 745)
+INFO:     127.0.0.1:40370 - "POST /api/chat/message HTTP/1.1" 200 OK
+2026-01-29 05:45:46 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:45:47 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:42300 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42304 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42320 - "GET /api/chat/sessions/1/messages HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-29 05:47:58 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11221]
+2026-01-29 05:48:05 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [11938]
+INFO:     Waiting for application startup.
+2026-01-29 05:48:07 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-29 05:48:07 - rag_education.main - INFO - Environment: development
+2026-01-29 05:48:07 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+2026-01-29 05:48:33 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:48:34 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:48774 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48788 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:48802 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+2026-01-29 05:48:34 - rag_education.rag_service - INFO - Retrieving context for query: What is Machine Learning?...
+2026-01-29 05:48:35 - rag_education.rag_service - INFO - Retrieved 6 chunks
+2026-01-29 05:48:35 - rag_education.rag_service - INFO - Generating response for: What is Machine Learning?...
+2026-01-29 05:48:35 - rag_education.rag_service - INFO - Using 6 context chunks
+2026-01-29 05:48:35 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:48:38 - rag_education.rag_service - INFO - Generated response (length: 1459)
+INFO:     127.0.0.1:48814 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38172 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38176 - "GET /api/chat/sessions/10/messages HTTP/1.1" 200 OK
+2026-01-29 05:48:41 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:48:41 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:38184 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38198 - "GET /api/courses/ HTTP/1.1" 200 OK
+2026-01-29 05:48:51 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:48:51 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:53734 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:53744 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+2026-01-29 05:48:51 - rag_education.rag_service - INFO - Retrieving context for query: What is HMM?...
+2026-01-29 05:48:52 - rag_education.rag_service - INFO - Retrieved 6 chunks
+2026-01-29 05:48:52 - rag_education.rag_service - INFO - Generating response for: What is HMM?...
+2026-01-29 05:48:52 - rag_education.rag_service - INFO - Using 6 context chunks
+2026-01-29 05:48:52 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 05:48:55 - rag_education.rag_service - INFO - Generated response (length: 1495)
+INFO:     127.0.0.1:53758 - "POST /api/chat/message HTTP/1.1" 200 OK
+2026-01-29 05:49:05 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:49:05 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:38420 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38424 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+2026-01-29 05:49:12 - rag_education.auth - INFO - Login attempt for email: nisschaykhandelwal@gmail.com
+2026-01-29 05:49:13 - rag_education.auth - INFO - Password login successful for: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:38432 - "POST /api/auth/login HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38440 - "GET /api/chat/sessions/11/messages HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-29 07:21:57 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [11938]
+2026-01-29 07:22:14 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [12734]
+INFO:     Waiting for application startup.
+2026-01-29 07:22:21 - rag_education.main - INFO - Starting RAG Education System API...
+2026-01-29 07:22:21 - rag_education.main - INFO - Environment: development
+2026-01-29 07:22:22 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:45908 - "OPTIONS /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45908 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45908 - "OPTIONS /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:45908 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "OPTIONS /api/auth/google HTTP/1.1" 200 OK
+2026-01-29 07:22:38 - rag_education.auth - INFO - Google auth attempt
+2026-01-29 07:22:43 - rag_education.auth - INFO - Google auth for email: nisschaykhandelwal@gmail.com
+INFO:     127.0.0.1:38084 - "POST /api/auth/google HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "GET /api/courses/ HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "OPTIONS /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38116 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "OPTIONS /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38116 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "OPTIONS /api/chat/sessions/11/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:38084 - "GET /api/chat/sessions/11/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43254 - "OPTIONS /api/chat/message HTTP/1.1" 200 OK
+2026-01-29 07:23:06 - rag_education.rag_service - INFO - Retrieving context for query: go in more depth tell me how things work as well ...
+2026-01-29 07:23:08 - rag_education.rag_service - INFO - Retrieved 6 chunks
+2026-01-29 07:23:08 - rag_education.rag_service - INFO - Generating response for: go in more depth tell me how things work as well ...
+2026-01-29 07:23:08 - rag_education.rag_service - INFO - Using 6 context chunks
+2026-01-29 07:23:08 - google_genai.models - INFO - AFC is enabled with max remote calls: 10.
+2026-01-29 07:23:32 - rag_education.rag_service - INFO - Generated response (length: 10222)
+INFO:     127.0.0.1:43254 - "POST /api/chat/message HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43254 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43254 - "GET /api/chat/sessions/11/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52592 - "GET /api/chat/sessions?course_id=1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52606 - "GET /api/courses/1 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52610 - "GET /api/courses/1/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:52592 - "GET /api/chat/sessions/11/messages HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+2026-01-29 07:25:13 - rag_education.main - INFO - Shutting down RAG Education System API...
+INFO:     Application shutdown complete.
+INFO:     Finished server process [12734]

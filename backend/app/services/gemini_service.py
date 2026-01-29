@@ -21,7 +21,7 @@ class GeminiService:
         self.client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
         
         self.model_name = 'gemini-2.5-flash'
-        self.embedding_model = 'text-embedding-004'
+        self.embedding_model = 'gemini-embedding-001'  # Updated to correct model name
         logger.info(f"GeminiService initialized with model: {self.model_name}")
     
     async def generate_text(self, prompt: str, system_instruction: str = None, max_retries: int = 2) -> str:

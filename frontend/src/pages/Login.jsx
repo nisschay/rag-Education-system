@@ -70,7 +70,11 @@ export default function Login() {
       navigate('/dashboard');
     } catch (error) {
       console.error('Google auth failed:', error);
-      setError('Google sign-in failed. Please try again.');
+      const message = error.response?.data?.detail || 
+                     (error.response?.status === 404 ? 'API endpoint not found. Check server connection.' :
+                      error.response?.status === 500 ? 'Server error. Please try again later.' :
+                      'Google sign-in failed. Please try again.');
+      setError(message);
     } finally {
       setIsLoading(false);
     }
@@ -103,7 +107,18 @@ export default function Login() {
       navigate('/dashboard');
     } catch (error) {
       console.error('Auth failed:', error);
-      const message = error.response?.data?.detail || 'Authentication failed. Please try again.';
+      let message = 'Authentication failed. Please try again.';
+      
+      if (error.response?.data?.detail) {
+        message = error.response.data.detail;
+      } else if (error.response?.status === 404) {
+        message = 'API endpoint not found. Check if the server is running.';
+      } else if (error.response?.status === 500) {
+        message = 'Server error. Please try again later.';
+      } else if (error.message === 'Network Error') {
+        message = 'Cannot connect to server. Please check your connection.';
+      }
+      
       setError(message);
     } finally {
       setIsLoading(false);

@@ -3,13 +3,13 @@ from fastapi.responses import StreamingResponse
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.schemas import ChatSession, Message, User, Course
-from app.api.auth import get_current_user
 from pydantic import BaseModel
 from typing import Optional
 from app.services.rag_service import rag_service
+from app.core.security import get_current_user
 import json
 
-router = APIRouter(prefix="/api/chat", tags=["chat"])
+router = APIRouter(prefix="/chat", tags=["chat"])
 
 class ChatRequest(BaseModel):
     message: str

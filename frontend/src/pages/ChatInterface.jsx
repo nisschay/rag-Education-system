@@ -46,7 +46,8 @@ import {
   Sparkles,
   Book,
   PanelLeftClose,
-  PanelLeft
+  PanelLeft,
+  RefreshCw
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 
@@ -104,6 +105,13 @@ export default function ChatInterface() {
       refetchDocs();
       setIsUploadOpen(false);
       setFiles([]);
+    },
+  });
+
+  const reindexMutation = useMutation({
+    mutationFn: () => coursesAPI.reindexDocuments(courseId),
+    onSuccess: () => {
+      refetchDocs();
     },
   });
 
@@ -199,17 +207,29 @@ export default function ChatInterface() {
                 {docList.length}
               </Badge>
             </div>
-            <Dialog open={isUploadOpen} onOpenChange={setIsUploadOpen}>
-              <DialogTrigger asChild>
-                <Button size="sm" variant="ghost">
-                  <Upload className="h-4 w-4" />
+            <div className="flex items-center gap-1">
+              {docList.length > 0 && (
+                <Button 
+                  size="sm" 
+                  variant="ghost" 
+                  onClick={() => reindexMutation.mutate()}
+                  disabled={reindexMutation.isPending}
+                  title="Re-index documents"
+                >
+                  <RefreshCw className={cn("h-4 w-4", reindexMutation.isPending && "animate-spin")} />
                 </Button>
-              </DialogTrigger>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Upload Documents</DialogTitle>
-                  <DialogDescription>
-                    Upload PDF files to add to this course (max 10 files, 10MB each).
+              )}
+              <Dialog open={isUploadOpen} onOpenChange={setIsUploadOpen}>
+                <DialogTrigger asChild>
+                  <Button size="sm" variant="ghost">
+                    <Upload className="h-4 w-4" />
+                  </Button>
+                </DialogTrigger>
+                <DialogContent>
+                  <DialogHeader>
+                    <DialogTitle>Upload Documents</DialogTitle>
+                    <DialogDescription>
+                      Upload PDF files to add to this course (max 10 files, 10MB each).
                   </DialogDescription>
                 </DialogHeader>
                 <div className="py-4">
@@ -240,6 +260,7 @@ export default function ChatInterface() {
                 </DialogFooter>
               </DialogContent>
             </Dialog>
+            </div>
           </div>
 
           <ScrollArea className="flex-1">
@@ -408,13 +429,13 @@ export default function ChatInterface() {
               <Textarea
                 ref={textareaRef}
                 placeholder={docList.length === 0 
-                  ? "Upload documents first to start asking questions..."
+                  ? "Ask a question... (No documents uploaded yet, but you can still chat!)"
                   : "Ask a question about your documents... (Shift+Enter for new line)"
                 }
                 value={message}
                 onChange={handleTextareaChange}
                 onKeyDown={handleKeyDown}
-                disabled={docList.length === 0 || sendMessageMutation.isPending}
+                disabled={sendMessageMutation.isPending}
                 className="flex-1 min-h-[44px] max-h-[200px] resize-none"
                 rows={1}
               />
@@ -422,14 +443,14 @@ export default function ChatInterface() {
                 type="submit" 
                 size="icon"
                 className="h-11 w-11 shrink-0"
-                disabled={!message.trim() || docList.length === 0 || sendMessageMutation.isPending}
+                disabled={!message.trim() || sendMessageMutation.isPending}
               >
                 <Send className="h-4 w-4" />
               </Button>
             </div>
             {docList.length === 0 && (
               <p className="text-xs text-muted-foreground mt-2 text-center">
-                Upload at least one document to start chatting
+                No documents uploaded yet. You can still ask questions using AI general knowledge.
               </p>
             )}
           </form>

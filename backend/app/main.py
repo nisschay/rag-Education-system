@@ -1,3 +1,9 @@
+from dotenv import load_dotenv
+import os
+
+# Load environment variables from .env file FIRST before any other imports
+load_dotenv()
+
 from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
@@ -10,7 +16,6 @@ from slowapi import Limiter, _rate_limit_exceeded_handler
 from slowapi.util import get_remote_address
 from slowapi.errors import RateLimitExceeded
 import uvicorn
-import os
 
 logger = get_logger("main")
 
@@ -73,10 +78,10 @@ async def global_exception_handler(request: Request, exc: Exception):
         content={"detail": "Internal server error"}
     )
 
-# Include routers
-app.include_router(auth.router)
-app.include_router(courses.router)
-app.include_router(chat.router)
+# Include routers with /api prefix
+app.include_router(auth.router, prefix="/api")
+app.include_router(courses.router, prefix="/api")
+app.include_router(chat.router, prefix="/api")
 
 @app.get("/")
 def read_root():

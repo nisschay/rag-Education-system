@@ -38,10 +38,14 @@ function AuthProvider({ children }) {
     setIsLoading(false);
   }, []);
 
-  const login = (userData) => {
-    localStorage.setItem('token', userData.token);
-    localStorage.setItem('user', JSON.stringify(userData));
-    setUser(userData);
+  const login = (authData) => {
+    // Backend returns access_token, user object
+    const token = authData.access_token || authData.token;
+    const user = authData.user || authData;
+    
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(user));
+    setUser(user);
   };
 
   const logout = () => {

@@ -59,6 +59,7 @@ export const coursesAPI = {
   getCourseDocuments: (courseId) => api.get(`/api/courses/${courseId}/documents`),
   deleteDocument: (courseId, documentId) => api.delete(`/api/courses/${courseId}/documents/${documentId}`),
   createUnit: (courseId, data) => api.post(`/api/courses/${courseId}/units`, data),
+  reindexDocuments: (courseId) => api.post(`/api/courses/${courseId}/reindex`),
 };
 
 export const chatAPI = {

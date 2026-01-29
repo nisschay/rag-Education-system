@@ -2,7 +2,6 @@ from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.schemas import Course, Unit, User, UploadedFile, ChatSession, Message
-from app.api.auth import get_current_user
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
@@ -11,9 +10,10 @@ import os
 from app.services.document_processor import document_processor
 from app.services.vector_store import vector_store
 from app.utils.logging_config import get_logger
+from app.core.security import get_current_user
 
 logger = get_logger("courses")
-router = APIRouter(prefix="/api/courses", tags=["courses"])
+router = APIRouter(prefix="/courses", tags=["courses"])
 
 class CourseCreate(BaseModel):
     name: str
@@ -412,3 +412,94 @@ async def delete_document(
         logger.error(f"Error deleting document {document_id}: {e}")
         db.rollback()
         raise HTTPException(status_code=500, detail=f"Error deleting document: {str(e)}")
+
+
+@router.post("/{course_id}/reindex")
+async def reindex_course_documents(
+    course_id: int,
+    current_user: User = Depends(get_current_user),
+    db: Session = Depends(get_db)
+):
+    """Re-index all documents in a course to ChromaDB"""
+    course = db.query(Course).filter(
+        Course.id == course_id,
+        Course.user_id == current_user.id
+    ).first()
+    
+    if not course:
+        raise HTTPException(status_code=404, detail="Course not found")
+    
+    files = db.query(UploadedFile).filter(UploadedFile.course_id == course_id).all()
+    
+    if not files:
+        return {"message": "No files to reindex", "reindexed": 0}
+    
+    reindexed = 0
+    errors = []
+    
+    for file in files:
+        try:
+            if not file.file_path or not os.path.exists(file.file_path):
+                errors.append(f"{file.original_filename}: File not found on disk")
+                continue
+            
+            # Extract text from PDF
+            text = await document_processor.extract_text_from_pdf(file.file_path)
+            
+            # Get or create default unit
+            default_unit = db.query(Unit).filter(
+                Unit.course_id == course_id,
+                Unit.level == 0
+            ).first()
+            
+            if not default_unit:
+                default_unit = Unit(
+                    course_id=course_id,
+                    name=f"{course.name} - Main",
+                    order=0,
+                    level=0
+                )
+                db.add(default_unit)
+                db.commit()
+                db.refresh(default_unit)
+            
+            # Create chunks
+            chunks = await document_processor.create_hierarchical_chunks(
+                text=text,
+                unit_id=default_unit.id,
+                unit_name=course.name
+            )
+            
+            # Generate unique IDs
+            import time
+            timestamp = int(time.time() * 1000)
+            
+            # Add to vector store
+            documents = [chunk["content"] for chunk in chunks]
+            metadatas = [chunk["metadata"] for chunk in chunks]
+            ids = [f"course_{course_id}_file_{file.id}_ts_{timestamp}_chunk_{i}" for i in range(len(chunks))]
+            
+            await vector_store.add_documents(
+                course_id=course_id,
+                documents=documents,
+                metadatas=metadatas,
+                ids=ids
+            )
+            
+            # Update chunks count
+            file.chunks_count = len(chunks)
+            db.commit()
+            
+            reindexed += 1
+            logger.info(f"Reindexed {file.original_filename}: {len(chunks)} chunks")
+            
+        except Exception as e:
+            logger.error(f"Error reindexing {file.original_filename}: {e}")
+            errors.append(f"{file.original_filename}: {str(e)}")
+    
+    return {
+        "message": f"Reindexed {reindexed} of {len(files)} documents",
+        "reindexed": reindexed,
+        "total": len(files),
+        "errors": errors
+    }
