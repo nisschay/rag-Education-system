@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.schemas import UploadedFile, User, Course
-from app.api.auth import get_current_user
+from app.core.security import get_current_user
 from app.utils.logging_config import get_logger
 
 logger = get_logger("processing_status")

@@ -260,3 +260,49 @@
   ➜  Network: use --host to expose
 10:30:14 AM [vite] (client) hmr update /src/pages/ChatInterface.jsx, /src/index.css
 10:30:14 AM [vite] (client) hmr update /src/pages/ChatInterface.jsx, /src/index.css
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 617 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 391 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 397 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+Killed
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 897 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 2587 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

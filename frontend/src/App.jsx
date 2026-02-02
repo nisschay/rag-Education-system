@@ -39,9 +39,11 @@ function AuthProvider({ children }) {
   }, []);
 
   const login = (userData) => {
-    localStorage.setItem('token', userData.token);
-    localStorage.setItem('user', JSON.stringify(userData));
-    setUser(userData);
+    // Backend returns access_token, store it as token
+    const token = userData.access_token || userData.token;
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData.user || userData));
+    setUser(userData.user || userData);
   };
 
   const logout = () => {

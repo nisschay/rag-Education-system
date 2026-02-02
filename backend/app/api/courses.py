@@ -2,7 +2,7 @@ from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, UploadFi
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.schemas import Course, Unit, User, UploadedFile, ChatSession, Message
-from app.api.auth import get_current_user
+from app.core.security import get_current_user
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
