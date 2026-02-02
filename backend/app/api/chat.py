@@ -207,7 +207,7 @@ async def send_message_stream(
         db.add(assistant_message)
         db.commit()
         
-        yield f"data: {json.dumps({'done': True})}\n\n"
+        yield f"data: {json.dumps({'done': True, 'session_id': session.id})}\n\n"
     
     return StreamingResponse(generate(), media_type="text/event-stream")
 

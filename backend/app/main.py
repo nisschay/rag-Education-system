@@ -2,7 +2,7 @@ from fastapi import FastAPI, Request
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 from contextlib import asynccontextmanager
-from app.api import auth, courses, chat
+from app.api import auth, courses, chat, processing_status
 from app.database import init_db
 from app.core.config import settings
 from app.utils.logging_config import get_logger
@@ -77,6 +77,7 @@ async def global_exception_handler(request: Request, exc: Exception):
 app.include_router(auth.router)
 app.include_router(courses.router)
 app.include_router(chat.router)
+app.include_router(processing_status.router)
 
 @app.get("/")
 def read_root():

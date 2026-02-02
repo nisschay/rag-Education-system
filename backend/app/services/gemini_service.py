@@ -2,6 +2,8 @@ from google import genai
 from google.genai import types
 import os
 import time
+import hashlib
+from collections import OrderedDict
 from dotenv import load_dotenv
 from app.utils.logging_config import get_logger
 
@@ -22,6 +24,8 @@ class GeminiService:
         
         self.model_name = 'gemini-2.5-flash'
         self.embedding_model = 'text-embedding-004'
+        self._embedding_cache: OrderedDict[str, list] = OrderedDict()
+        self._cache_max_items = 1000
         logger.info(f"GeminiService initialized with model: {self.model_name}")
     
     async def generate_text(self, prompt: str, system_instruction: str = None, max_retries: int = 2) -> str:
@@ -98,13 +102,27 @@ class GeminiService:
             raise
     
     async def generate_embedding(self, text: str) -> list:
-        """Generate embedding for text"""
+        """Generate embedding for text with in-memory LRU caching."""
+        cache_key = hashlib.md5(text.encode()).hexdigest()
+
+        if cache_key in self._embedding_cache:
+            embedding = self._embedding_cache.pop(cache_key)
+            self._embedding_cache[cache_key] = embedding
+            return embedding
+
         try:
             result = self.client.models.embed_content(
                 model=self.embedding_model,
                 contents=text
             )
-            return result.embeddings[0].values
+            embedding = result.embeddings[0].values
+
+            self._embedding_cache[cache_key] = embedding
+            if len(self._embedding_cache) > self._cache_max_items:
+                # Evict oldest item
+                self._embedding_cache.popitem(last=False)
+
+            return embedding
         except Exception as e:
             print(f"Error generating embedding: {e}")
             raise

@@ -92,7 +92,12 @@ class UploadedFile(Base):
     filename = Column(String)
     original_filename = Column(String)
     file_size = Column(Integer)  # Size in bytes
-    file_path = Column(String)
+    # Store extracted text to avoid persisting original files
+    extracted_text = Column(Text, nullable=True)
+    text_hash = Column(String(64), nullable=True)
+    processing_status = Column(String(20), default="pending")
+    # Deprecated: file path kept for backward compatibility
+    file_path = Column(String, nullable=True)
     chunks_count = Column(Integer, default=0)
     uploaded_at = Column(DateTime, default=datetime.utcnow)
     
