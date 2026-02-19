@@ -324,3 +324,12 @@ Killed
 
   ➜  Local:   http://localhost:5173/
   ➜  Network: use --host to expose
+
+> rag-education-frontend@0.0.0 dev
+> vite
+
+
+  VITE v7.3.1  ready in 830 ms
+
+  ➜  Local:   http://localhost:5173/
+  ➜  Network: use --host to expose

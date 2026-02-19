@@ -146,3 +146,47 @@ INFO:     Waiting for application shutdown.
 2026-02-02 13:56:03 - rag_education.main - INFO - Shutting down RAG Education System API...
 INFO:     Application shutdown complete.
 INFO:     Finished server process [3252]
+2026-02-02 14:03:02 - rag_education.gemini_service - INFO - GeminiService initialized with model: gemini-2.5-flash
+INFO:     Started server process [6730]
+INFO:     Waiting for application startup.
+2026-02-02 14:03:05 - rag_education.main - INFO - Starting RAG Education System API...
+2026-02-02 14:03:05 - rag_education.main - INFO - Environment: development
+2026-02-02 14:03:06 - rag_education.main - INFO - Database initialized (PostgreSQL)
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:42232 - "GET /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42236 - "GET /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42244 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42236 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42236 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42236 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42244 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42236 - "GET /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42232 - "GET /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:42232 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35326 - "GET /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35294 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35296 - "GET /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35296 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35296 - "GET /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35326 - "GET /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35294 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35326 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43698 - "OPTIONS /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43706 - "OPTIONS /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43722 - "OPTIONS /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43722 - "OPTIONS /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:43722 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35218 - "GET /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35220 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35222 - "GET /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:35220 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:46868 - "GET /health HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50662 - "OPTIONS /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50678 - "OPTIONS /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "OPTIONS /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50662 - "GET /api/courses/4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50678 - "GET /api/chat/sessions?course_id=4 HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "GET /api/courses/4/documents HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "OPTIONS /api/chat/sessions/12/messages HTTP/1.1" 200 OK
+INFO:     127.0.0.1:50680 - "GET /api/chat/sessions/12/messages HTTP/1.1" 200 OK
