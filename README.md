@@ -242,15 +242,6 @@ VITE_API_URL=http://localhost:8000
 VITE_GOOGLE_CLIENT_ID=your-google-oauth-client-id
 ```
 
-## 🎓 Student Offers (Free Credits)
-
-Get free cloud credits with your .edu email:
-
-| Program | Benefit | Link |
-|---------|---------|------|
-| **GitHub Student Pack** | $200+ in credits | [education.github.com/pack](https://education.github.com/pack) |
-| **Google Cloud** | $300 free credit | [cloud.google.com/edu](https://cloud.google.com/edu) |
-| **Azure for Students** | $100 free credit | [azure.microsoft.com/free/students](https://azure.microsoft.com/free/students) |
 
 ## 📖 Usage
 

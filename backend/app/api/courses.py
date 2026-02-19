@@ -1,13 +1,12 @@
-from fastapi import APIRouter, Depends, HTTPException, UploadFile, File, Form
+from fastapi import APIRouter, BackgroundTasks, Depends, HTTPException, UploadFile, File, Form
 from sqlalchemy.orm import Session
 from app.database import get_db
 from app.models.schemas import Course, Unit, User, UploadedFile, ChatSession, Message
-from app.api.auth import get_current_user
+from app.core.security import get_current_user
 from pydantic import BaseModel
 from typing import List, Optional
 from datetime import datetime
-import aiofiles
-import os
+import hashlib
 from app.services.document_processor import document_processor
 from app.services.vector_store import vector_store
 from app.utils.logging_config import get_logger
@@ -110,142 +109,98 @@ async def create_unit(
 @router.post("/{course_id}/upload")
 async def upload_documents(
     course_id: int,
+    background_tasks: BackgroundTasks,
     files: list[UploadFile] = File(...),
     unit_id: Optional[int] = Form(None),
     topic_name: Optional[str] = Form(None),
     current_user: User = Depends(get_current_user),
     db: Session = Depends(get_db)
 ):
-    """Upload multiple PDF documents to a course"""
+    """Upload documents quickly; process text in background."""
     course = db.query(Course).filter(
         Course.id == course_id,
         Course.user_id == current_user.id
     ).first()
-    
+
     if not course:
         raise HTTPException(status_code=404, detail="Course not found")
-    
-    # Limits
-    MAX_FILE_SIZE = 10 * 1024 * 1024  # 10 MB per file
-    MAX_FILES = 10  # Max 10 files at once
-    
+
+    MAX_FILE_SIZE = 15 * 1024 * 1024
+    MAX_FILES = 10
+    ALLOWED_EXTENSIONS = {'.pdf', '.docx', '.pptx'}
+
     if len(files) > MAX_FILES:
-        raise HTTPException(status_code=400, detail=f"Maximum {MAX_FILES} files allowed per upload")
-    
+        raise HTTPException(status_code=400, detail=f"Maximum {MAX_FILES} files allowed")
+
     uploaded_files = []
-    
+
     for file in files:
-        if not file.filename.lower().endswith('.pdf'):
+        ext = '.' + file.filename.lower().split('.')[-1]
+        if ext not in ALLOWED_EXTENSIONS:
+            logger.warning(f"Skipping unsupported file type: {file.filename}")
             continue
-            
-        # Save file
-        upload_dir = os.getenv("UPLOAD_DIR", "./uploads")
-        os.makedirs(upload_dir, exist_ok=True)
-        file_path = os.path.join(upload_dir, f"{course_id}_{file.filename}")
-        
-        async with aiofiles.open(file_path, 'wb') as f:
-            content = await file.read()
-            file_size = len(content)
-            
-            if file_size > MAX_FILE_SIZE:
-                logger.warning(f"File {file.filename} exceeds size limit ({file_size} > {MAX_FILE_SIZE})")
-                continue
-                
-            await f.write(content)
-        
-        logger.info(f"Uploaded file {file.filename} ({file_size} bytes) for course {course_id}")
-        
-        # Extract text
-        text = await document_processor.extract_text_from_pdf(file_path)
-        
-        # Pick target unit: optional topic name, explicit unit, or default
-        target_unit_id = unit_id
 
-        if topic_name:
-            existing_unit = db.query(Unit).filter(
-                Unit.course_id == course_id,
-                Unit.name == topic_name
-            ).first()
-            if not existing_unit:
-                next_order = db.query(Unit).filter(Unit.course_id == course_id).count()
-                existing_unit = Unit(
-                    course_id=course_id,
-                    name=topic_name,
-                    order=next_order,
-                    level=1
-                )
-                db.add(existing_unit)
-                db.commit()
-                db.refresh(existing_unit)
-            target_unit_id = existing_unit.id
+        content = await file.read()
+        file_size = len(content)
 
-        if not target_unit_id:
-            default_unit = db.query(Unit).filter(
-                Unit.course_id == course_id,
-                Unit.level == 0
-            ).first()
-            
-            if not default_unit:
-                default_unit = Unit(
-                    course_id=course_id,
-                    name=f"{course.name} - Main",
-                    order=0,
-                    level=0
-                )
-                db.add(default_unit)
-                db.commit()
-                db.refresh(default_unit)
-            
-            target_unit_id = default_unit.id
-        
-        # Create hierarchical chunks
-        chunks = await document_processor.create_hierarchical_chunks(
-            text=text,
-            unit_id=target_unit_id,
-            unit_name=course.name
-        )
-        
-        # Generate unique IDs based on timestamp
-        import time
-        timestamp = int(time.time() * 1000)
-        
-        # Add to vector store
-        documents = [chunk["content"] for chunk in chunks]
-        metadatas = [chunk["metadata"] for chunk in chunks]
-        ids = [f"course_{course_id}_file_{timestamp}_chunk_{i}" for i in range(len(chunks))]
-        
-        await vector_store.add_documents(
-            course_id=course_id,
-            documents=documents,
-            metadatas=metadatas,
-            ids=ids
-        )
-        
-        # Save uploaded file record
+        if file_size > MAX_FILE_SIZE:
+            logger.warning(f"File {file.filename} exceeds size limit")
+            continue
+
+        try:
+            extracted_text = await document_processor.extract_text_from_bytes(content, file.filename)
+        except Exception as e:
+            logger.error(f"Failed to extract text from {file.filename}: {e}")
+            continue
+
+        text_hash = hashlib.sha256(extracted_text.encode()).hexdigest()
+
+        existing = db.query(UploadedFile).filter(
+            UploadedFile.course_id == course_id,
+            UploadedFile.text_hash == text_hash
+        ).first()
+
+        if existing:
+            logger.info(f"Skipping duplicate document: {file.filename}")
+            continue
+
+        target_unit_id = await _get_or_create_unit(db, course_id, course.name, unit_id, topic_name)
+
         uploaded_file = UploadedFile(
             course_id=course_id,
             filename=file.filename,
             original_filename=file.filename,
             file_size=file_size,
-            file_path=file_path,
-            chunks_count=len(chunks)
+            extracted_text=extracted_text,
+            text_hash=text_hash,
+            processing_status="pending",
+            chunks_count=0
         )
         db.add(uploaded_file)
+        db.flush()
+
+        background_tasks.add_task(
+            process_document_background,
+            uploaded_file.id,
+            course_id,
+            target_unit_id,
+            course.name
+        )
+
         uploaded_files.append({
+            "id": uploaded_file.id,
             "filename": file.filename,
             "size": file_size,
-            "chunks": len(chunks)
+            "status": "processing",
+            "text_length": len(extracted_text)
         })
-    
+
     db.commit()
-    
+
     return {
-        "message": f"Successfully uploaded {len(uploaded_files)} document(s)",
+        "message": f"Uploaded {len(uploaded_files)} document(s), processing in background",
         "files": uploaded_files,
-        "limits": {
-            "max_file_size_mb": MAX_FILE_SIZE // (1024 * 1024),
-            "max_files_per_upload": MAX_FILES
-        }
+        "processing": True
     }
 
 @router.get("/{course_id}/structure")
@@ -319,6 +274,104 @@ async def get_course_documents(
             for f in files
         ]
     }
+
+async def _get_or_create_unit(
+    db: Session,
+    course_id: int,
+    course_name: str,
+    unit_id: Optional[int],
+    topic_name: Optional[str]
+) -> int:
+    """Resolve target unit for upload, creating topic unit if needed."""
+    if unit_id:
+        return unit_id
+
+    if topic_name:
+        existing_unit = db.query(Unit).filter(
+            Unit.course_id == course_id,
+            Unit.name == topic_name
+        ).first()
+        if not existing_unit:
+            next_order = db.query(Unit).filter(Unit.course_id == course_id).count()
+            existing_unit = Unit(
+                course_id=course_id,
+                name=topic_name,
+                order=next_order,
+                level=1
+            )
+            db.add(existing_unit)
+            db.commit()
+            db.refresh(existing_unit)
+        return existing_unit.id
+
+    default_unit = db.query(Unit).filter(
+        Unit.course_id == course_id,
+        Unit.level == 0
+    ).first()
+
+    if not default_unit:
+        default_unit = Unit(
+            course_id=course_id,
+            name=f"{course_name} - Main",
+            order=0,
+            level=0
+        )
+        db.add(default_unit)
+        db.commit()
+        db.refresh(default_unit)
+
+    return default_unit.id
+
+
+async def process_document_background(
+    file_id: int,
+    course_id: int,
+    unit_id: int,
+    course_name: str
+):
+    """Background task: chunk + embed extracted text."""
+    from app.database import SessionLocal
+
+    db = SessionLocal()
+    try:
+        file = db.query(UploadedFile).filter(UploadedFile.id == file_id).first()
+        if not file:
+            return
+
+        file.processing_status = "processing"
+        db.commit()
+
+        chunks = document_processor.create_semantic_chunks(
+            file.extracted_text or "",
+            {
+                "unit_id": unit_id,
+                "unit_name": course_name,
+                "source": file.filename,
+                "file_id": file_id
+            }
+        )
+
+        documents = [chunk["content"] for chunk in chunks]
+        metadatas = [chunk["metadata"] for chunk in chunks]
+        ids = [f"course_{course_id}_file_{file_id}_chunk_{i}" for i in range(len(chunks))]
+
+        await vector_store.add_documents_batched(
+            course_id=course_id,
+            documents=documents,
+            metadatas=metadatas,
+            ids=ids
+        )
+
+        file.processing_status = "completed"
+        file.chunks_count = len(chunks)
+        db.commit()
+
+    except Exception as e:
+        logger.error(f"Background processing failed for file {file_id}: {e}")
+        file.processing_status = "failed"
+        db.commit()
+    finally:
+        db.close()
 
 
 @router.delete("/{course_id}")

@@ -39,9 +39,11 @@ function AuthProvider({ children }) {
   }, []);
 
   const login = (userData) => {
-    localStorage.setItem('token', userData.token);
-    localStorage.setItem('user', JSON.stringify(userData));
-    setUser(userData);
+    // Backend returns access_token, store it as token
+    const token = userData.access_token || userData.token;
+    localStorage.setItem('token', token);
+    localStorage.setItem('user', JSON.stringify(userData.user || userData));
+    setUser(userData.user || userData);
   };
 
   const logout = () => {
@@ -88,6 +90,20 @@ function PublicRoute({ children }) {
 }
 
 function App() {
+  useEffect(() => {
+    const pingBackend = async () => {
+      try {
+        await fetch(`${import.meta.env.VITE_API_URL}/health`);
+      } catch (e) {
+        // Silent fail; keep-alive only
+      }
+    };
+
+    pingBackend();
+    const interval = setInterval(pingBackend, 10 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, []);
+
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>

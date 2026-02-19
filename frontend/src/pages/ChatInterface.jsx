@@ -60,6 +60,8 @@ export default function ChatInterface() {
   const [files, setFiles] = useState([]);
   const [uploading, setUploading] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(true);
+  const [streamingMessage, setStreamingMessage] = useState('');
+  const [isStreaming, setIsStreaming] = useState(false);
   const messagesEndRef = useRef(null);
   const textareaRef = useRef(null);
 
@@ -70,7 +72,6 @@ export default function ChatInterface() {
       return response.data;
     },
   });
-
   const { data: documents, refetch: refetchDocs } = useQuery({
     queryKey: ['documents', courseId],
     queryFn: async () => {
@@ -84,17 +85,6 @@ export default function ChatInterface() {
     queryFn: async () => {
       const response = await chatAPI.getChatHistory(courseId);
       return response.data;
-    },
-  });
-
-  const sendMessageMutation = useMutation({
-    mutationFn: (query) => chatAPI.sendMessage(courseId, query, chatHistory?.session_id),
-    onSuccess: () => {
-      refetchChat();
-      setMessage('');
-      if (textareaRef.current) {
-        textareaRef.current.style.height = 'auto';
-      }
     },
   });
 
@@ -116,7 +106,7 @@ export default function ChatInterface() {
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  }, [chatHistory]);
+  }, [chatHistory, streamingMessage]);
 
   // Auto-resize textarea
   const handleTextareaChange = (e) => {
@@ -135,8 +125,95 @@ export default function ChatInterface() {
 
   const handleSend = (e) => {
     e.preventDefault();
-    if (!message.trim() || sendMessageMutation.isPending) return;
-    sendMessageMutation.mutate(message);
+    if (!message.trim() || isStreaming) return;
+    sendMessageStreaming(message);
+  };
+
+  const sendMessageStreaming = async (query) => {
+    if (!query.trim() || isStreaming) return;
+
+    setIsStreaming(true);
+    setStreamingMessage('');
+
+    const userMessage = { role: 'user', content: query };
+    queryClient.setQueryData(['chat', courseId], (old) => ({
+      ...old,
+      messages: [...(old?.messages || []), userMessage],
+      session_id: old?.session_id || null,
+    }));
+    setMessage('');
+    if (textareaRef.current) {
+      textareaRef.current.style.height = 'auto';
+    }
+
+    try {
+      const token = localStorage.getItem('token');
+      const response = await fetch(
+        `${import.meta.env.VITE_API_URL}/api/chat/message/stream`,
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: token ? `Bearer ${token}` : undefined,
+          },
+          body: JSON.stringify({
+            course_id: parseInt(courseId),
+            message: query,
+            session_id: chatHistory?.session_id || null,
+          }),
+        }
+      );
+
+      if (!response.ok || !response.body) {
+        throw new Error('Streaming request failed');
+      }
+
+      const reader = response.body?.getReader();
+      if (!reader) {
+        throw new Error('No response stream');
+      }
+
+      const decoder = new TextDecoder();
+      let fullResponse = '';
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        const chunk = decoder.decode(value, { stream: true });
+        const lines = chunk.split('\n');
+
+        for (const line of lines) {
+          if (line.startsWith('data: ')) {
+            try {
+              const data = JSON.parse(line.slice(6));
+              if (data.chunk) {
+                fullResponse += data.chunk;
+                setStreamingMessage(fullResponse);
+              }
+              if (data.done) {
+                queryClient.setQueryData(['chat', courseId], (old) => ({
+                  ...old,
+                  messages: [
+                    ...(old?.messages || []),
+                    { role: 'assistant', content: fullResponse },
+                  ],
+                  session_id: data.session_id || old?.session_id,
+                }));
+                setStreamingMessage('');
+              }
+            } catch (err) {
+              console.error('Stream parse error', err);
+            }
+          }
+        }
+      }
+    } catch (error) {
+      console.error('Streaming error:', error);
+    } finally {
+      setIsStreaming(false);
+      refetchChat();
+    }
   };
 
   const handleUpload = async () => {
@@ -209,13 +286,13 @@ export default function ChatInterface() {
                 <DialogHeader>
                   <DialogTitle>Upload Documents</DialogTitle>
                   <DialogDescription>
-                    Upload PDF files to add to this course (max 10 files, 10MB each).
+                    Upload PDF, DOCX, or PPTX files (max 10 files, 15MB each).
                   </DialogDescription>
                 </DialogHeader>
                 <div className="py-4">
                   <Input
                     type="file"
-                    accept=".pdf"
+                    accept=".pdf,.docx,.pptx"
                     multiple
                     onChange={handleFileChange}
                   />
@@ -335,7 +412,7 @@ export default function ChatInterface() {
                 <h3 className="text-lg font-semibold mb-2">Start a conversation</h3>
                 <p className="text-muted-foreground text-sm">
                   Ask questions about your uploaded documents. The AI will use 
-                  the content from your PDFs to provide accurate answers.
+                  the content from your files to provide accurate answers.
                 </p>
               </div>
             </div>
@@ -380,18 +457,19 @@ export default function ChatInterface() {
                   </div>
                 </div>
               ))}
-              {sendMessageMutation.isPending && (
+              {isStreaming && streamingMessage && (
                 <div className="flex gap-3">
                   <Avatar className="h-8 w-8 bg-secondary shrink-0">
                     <AvatarFallback className="bg-secondary">
                       <Bot className="h-4 w-4" />
                     </AvatarFallback>
                   </Avatar>
-                  <div className="bg-muted rounded-2xl px-4 py-3">
-                    <div className="flex items-center gap-2">
-                      <div className="w-2 h-2 bg-foreground/30 rounded-full animate-bounce" style={{ animationDelay: '0ms' }} />
-                      <div className="w-2 h-2 bg-foreground/30 rounded-full animate-bounce" style={{ animationDelay: '150ms' }} />
-                      <div className="w-2 h-2 bg-foreground/30 rounded-full animate-bounce" style={{ animationDelay: '300ms' }} />
+                  <div className="bg-muted rounded-2xl px-4 py-3 max-w-[80%]">
+                    <div className="prose prose-sm dark:prose-invert max-w-none">
+                      <ReactMarkdown remarkPlugins={[remarkGfm, remarkMath]} rehypePlugins={[rehypeKatex]}>
+                        {streamingMessage}
+                      </ReactMarkdown>
+                      <span className="inline-block w-2 h-4 bg-primary/50 animate-pulse ml-1" />
                     </div>
                   </div>
                 </div>
@@ -414,7 +492,7 @@ export default function ChatInterface() {
                 value={message}
                 onChange={handleTextareaChange}
                 onKeyDown={handleKeyDown}
-                disabled={docList.length === 0 || sendMessageMutation.isPending}
+                disabled={docList.length === 0 || isStreaming}
                 className="flex-1 min-h-[44px] max-h-[200px] resize-none"
                 rows={1}
               />
@@ -422,7 +500,7 @@ export default function ChatInterface() {
                 type="submit" 
                 size="icon"
                 className="h-11 w-11 shrink-0"
-                disabled={!message.trim() || docList.length === 0 || sendMessageMutation.isPending}
+                disabled={!message.trim() || docList.length === 0 || isStreaming}
               >
                 <Send className="h-4 w-4" />
               </Button>

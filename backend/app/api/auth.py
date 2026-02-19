@@ -8,13 +8,16 @@ import logging
 import bcrypt
 import jwt
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 from app.database import get_db
 from app.models.schemas import User
 
 logger = logging.getLogger("rag_education.auth")
 
-router = APIRouter(prefix="/auth", tags=["Authentication"])
+router = APIRouter(prefix="/api/auth", tags=["Authentication"])
 
 # Get settings from environment directly for reliability
 SECRET_KEY = os.environ.get("SECRET_KEY", "change-this-in-production")
@@ -214,7 +217,7 @@ async def google_auth(request: GoogleAuthRequest, db: Session = Depends(get_db))
 
 
 @router.get("/me")
-async def get_current_user(db: Session = Depends(get_db), token: str = None):
+async def get_me(db: Session = Depends(get_db), token: str = None):
     """Get current user from token."""
     # This would need token from header - simplified for now
     return {"message": "Use Authorization header with Bearer token"}

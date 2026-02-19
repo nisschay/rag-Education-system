@@ -200,7 +200,8 @@ function CourseCard({ course, navigate }) {
   const [uploading, setUploading] = useState(false);
   const [fileError, setFileError] = useState('');
   const [topicName, setTopicName] = useState('');
-  const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
+  const [uploadProgress, setUploadProgress] = useState(null);
+  const MAX_FILE_SIZE = 15 * 1024 * 1024; // 15 MB
   const MAX_FILES = 10;
   const queryClient = useQueryClient();
 
@@ -213,7 +214,43 @@ function CourseCard({ course, navigate }) {
   });
 
   const uploadMutation = useMutation({
-    mutationFn: () => coursesAPI.uploadDocuments(course.id, files, null, topicName || null),
+    mutationFn: () => {
+      const formData = new FormData();
+      files.forEach((f) => formData.append('files', f));
+      if (topicName) formData.append('topic_name', topicName);
+
+      return new Promise((resolve, reject) => {
+        const xhr = new XMLHttpRequest();
+        xhr.open('POST', `${import.meta.env.VITE_API_URL}/api/courses/${course.id}/upload`);
+        const token = localStorage.getItem('token');
+        if (token) {
+          xhr.setRequestHeader('Authorization', `Bearer ${token}`);
+        }
+
+        xhr.upload.onprogress = (event) => {
+          if (event.lengthComputable) {
+            const pct = Math.round((event.loaded / event.total) * 100);
+            setUploadProgress(pct);
+          }
+        };
+
+        xhr.onload = () => {
+          setUploadProgress(null);
+          if (xhr.status >= 200 && xhr.status < 300) {
+            resolve(JSON.parse(xhr.response || '{}'));
+          } else {
+            reject(new Error(xhr.statusText || 'Upload failed'));
+          }
+        };
+
+        xhr.onerror = () => {
+          setUploadProgress(null);
+          reject(new Error('Upload failed'));
+        };
+
+        xhr.send(formData);
+      });
+    },
     onSuccess: () => {
       queryClient.invalidateQueries(['documents', course.id]);
       setIsUploadOpen(false);
@@ -258,7 +295,7 @@ function CourseCard({ course, navigate }) {
 
     const oversized = trimmedFiles.filter((f) => f.size > MAX_FILE_SIZE);
     if (oversized.length > 0) {
-      error = `Files must be 10 MB or smaller. Skipped: ${oversized.map((f) => f.name).join(', ')}`;
+      error = `Files must be 15 MB or smaller. Skipped: ${oversized.map((f) => f.name).join(', ')}`;
       trimmedFiles = trimmedFiles.filter((f) => f.size <= MAX_FILE_SIZE);
     }
 
@@ -319,7 +356,7 @@ function CourseCard({ course, navigate }) {
             <DialogHeader>
               <DialogTitle>Upload Documents</DialogTitle>
               <DialogDescription>
-                Upload PDF files to add to this course (max 10 files, 10MB each). You can optionally tag uploads under a topic.
+                Upload PDF, DOCX, or PPTX files (max 10 files, 15MB each). You can optionally tag uploads under a topic.
               </DialogDescription>
             </DialogHeader>
             <div className="py-4">
@@ -335,11 +372,11 @@ function CourseCard({ course, navigate }) {
 
               <Input
                 type="file"
-                accept=".pdf"
+                accept=".pdf,.docx,.pptx"
                 multiple
                 onChange={handleFileChange}
               />
-              <p className="text-xs text-muted-foreground mt-2">Up to {MAX_FILES} files per upload, 10 MB each. Larger files will be skipped.</p>
+              <p className="text-xs text-muted-foreground mt-2">Up to {MAX_FILES} files per upload, 15 MB each. Larger files will be skipped.</p>
               {fileError && (
                 <div className="mt-2 text-sm text-destructive bg-destructive/10 p-2 rounded-md">
                   {fileError}
@@ -374,6 +411,15 @@ function CourseCard({ course, navigate }) {
             </DialogFooter>
           </DialogContent>
         </Dialog>
+
+        {uploadProgress !== null && (
+          <div className="w-full bg-gray-200 rounded-full h-2 mt-2">
+            <div
+              className="bg-primary h-2 rounded-full transition-all"
+              style={{ width: `${uploadProgress}%` }}
+            />
+          </div>
+        )}
 
         <Dialog open={isDocsOpen} onOpenChange={setIsDocsOpen}>
           <DialogTrigger asChild>

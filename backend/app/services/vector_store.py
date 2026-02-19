@@ -3,6 +3,7 @@ from chromadb.config import Settings
 import os
 from typing import List, Dict
 from app.services.gemini_service import gemini_service
+import asyncio
 
 class VectorStore:
     def __init__(self):
@@ -42,6 +43,33 @@ class VectorStore:
             embeddings=embeddings,
             ids=ids
         )
+
+    async def add_documents_batched(
+        self,
+        course_id: int,
+        documents: List[str],
+        metadatas: List[Dict],
+        ids: List[str],
+        batch_size: int = 10
+    ):
+        """Add documents with batched embedding generation for throughput."""
+        collection = self.get_or_create_collection(course_id)
+
+        for i in range(0, len(documents), batch_size):
+            batch_docs = documents[i:i + batch_size]
+            batch_metas = metadatas[i:i + batch_size]
+            batch_ids = ids[i:i + batch_size]
+
+            embeddings = await asyncio.gather(*[
+                gemini_service.generate_embedding(doc) for doc in batch_docs
+            ])
+
+            collection.add(
+                documents=batch_docs,
+                metadatas=batch_metas,
+                embeddings=embeddings,
+                ids=batch_ids
+            )
     
     async def query(
         self,
